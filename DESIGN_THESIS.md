@@ -104,9 +104,11 @@ running it, in public:
 - **A public trace.** Every run publishes its full trace and hypothesis where
   anyone can inspect it. You can watch the agent think, check its sources,
   and see exactly where the expert corrected it.
-- **Integrated with singolab.com.** The live watch is linked from the
-  projects that document the work, so the demonstration and the writing about
-  the demonstration live side by side.
+- **Independent, gatewayed through singolab.com.** FloridaMan operates on
+  its own — its own repo, its own deployment, its own home (the same pattern
+  as the study guide at drive.singolab.com). singolab.com is the production
+  gateway: it links to the live watch and the public trace, but FloridaMan
+  never depends on it. A product should survive its gateway.
 
 The first live subject is Tropical Storm Isaias (October 2026) — a real storm,
 watched in real time, with the agent's hypotheses timestamped against what
