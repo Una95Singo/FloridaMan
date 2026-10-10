@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isaias watch — FloridaMan</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="The full Hurricane Isaias watch run feed: runs 001 to 004, each with hypothesis, trace, QC record, and expert corrections.">
+</head>
+<body>
+<main class="wide">
+
+<header class="site-header">
+  <p class="brand">FloridaMan</p>
+  <p class="tagline">The trace is the product.</p>
+  <nav class="site-nav">
+    <a href="../index.html">Home</a>
+    <a href="isaias.html">Isaias watch</a>
+    <a href="../universe.html">Bond universe</a>
+    <a href="../method.html">Method</a>
+  </nav>
+</header>
+
+<p class="kicker">Storm watch feed · Hurricane Isaias · Oct 2026</p>
+<h1>The Isaias watch</h1>
+
+<!--
+  GENERATED FEED — run summaries transcribed verbatim from the trace files in
+  ~/workspace/github-finish/floridaman/watch/isaias/ (trace-*.md, qc-*.md,
+  latest.md). Full trace text is copied exactly into the <details> blocks.
+  To refresh after a new run: add a new <article class="run"> block at the top
+  of the feed, mark the previous active run superseded with its one-line reason.
+-->
+
+<p class="lede">Four watch runs, oldest first — the feed reads as a chronology.
+Each run shows its trigger, hypothesis, QC verdict, and expert corrections.
+Superseded runs are visibly marked with the one-line reason they were
+superseded. Nothing is edited out: the run QC blocked is here, with its
+blockers named.</p>
+
+<!-- ============================================================
+     RUN 004 — active
+     ============================================================ -->
+<article class="run" id="run-004">
+  <div class="run-head">
+    <h2>Run 004 — Category 3 escalation</h2>
+    <span class="badge active">Active</span>
+    <span class="badge qc-pass">QC: Pass</span>
+  </div>
+  <p class="meta">Computed from the NHC 7:20 AM CT alert, Fri Oct 9, 2026 ·
+  QC validated ~12:35 PM EDT, Oct 9, 2026 · Awaiting expert review</p>
+
+  <h3>Trigger</h3>
+  <p>TRG-001/TRG-002: NHC 7:20 AM CT alert, Fri Oct 9, 2026 — Isaias
+  strengthened to a <strong>major Category 3 hurricane</strong>, 120 mph
+  sustained, 959 mb. Material change since run 003 (≥1 category intensification;
+  run 003's falsification condition "Cat 3+ reached" has fired).</p>
+
+  <h3>Hypothesis (indicative, not marks)</h3>
+  <p>Isaias reaching Cat 3 fired run 003's escalation trigger, and the
+  hypothesis escalates with it: <strong>the two sub-$500m Florida attachments
+  (Hestia B $405m, First Coast B $390m) are now likely threatened if the
+  landfall point falls on populated Panhandle coastline near the cedents'
+  concentrations</strong> — the surge component (up to 7 ft) and the growing
+  wind field both widen the loss footprint beyond the center.
+  <strong>Kilimanjaro II is the lead tail position</strong>: if the storm holds
+  intensity against the shear forecast, industry-loss estimates move up and the
+  undisclosed industry-loss trigger is the first place the market will look.
+  Everything above $1bn attachment (Bayou Re A, Everglades, Sanders) still
+  requires a severe-to-catastrophic realization; aggregates face full
+  retentions.</p>
+  <p>Sensitivity order: Kilimanjaro II (tail) / Hestia Re B / First Coast Re B
+  — then Bayou Re A — then a large gap to everything else.</p>
+  <p>Confidence: MEDIUM. Track confidence high (landfall tonight, AL–FL border
+  consensus); intensity at landfall is the entire game and rests on shear
+  timing the models still split on.</p>
+
+  <h3>QC record</h3>
+  <p class="qc-line"><strong>Verdict: PASS.</strong> Eight checks — source
+  resolution, independent recomputation, units, freshness, falsification,
+  language audit, expert handoff, prior grounding — all pass. Supersession
+  chain verified; trigger-type logic consistent with covered areas.</p>
+  <p class="qc-line">Notes for the expert (non-blocking): the 10:00 AM CT
+  advisory post-dates the draft's inputs — nothing in the bond hypothesis
+  changes on it, but NHC's raised "could maintain major hurricane intensity up
+  until landfall" is precisely the draft's falsification leg #1 starting to
+  engage; the expert may publish run 004 as-is or hold ~1 hour for the 1:00 PM
+  CT intermediate. Wording note: run 003's condition #1 was "Landfall at Cat
+  3+" — landfall has not occurred, so what actually fired is the ≥1-category
+  intensification trigger. The "likely threatened" promotion remains the
+  expert's to make.</p>
+
+  <h3>Where am I wrong? (for the expert)</h3>
+  <ol>
+    <li>"Likely threatened" for the two sub-$500m attachments — right call, or still too hot without cedent concentration data?</li>
+    <li>Is Kilimanjaro II rightly the lead tail, or does the undisclosed attachment make that promotion premature?</li>
+    <li>Surge vs wind as the near-term loss driver (carried from run 002 — still open, and more urgent now).</li>
+    <li>Artemis's single-digit-billion figure is pre-Cat-3: how far stale-low should the hypothesis treat it?</li>
+    <li>Kin concentrations for the Hestia ranking (still open).</li>
+  </ol>
+
+  <details>
+    <summary>Full trace text — trace-20261009-004.md</summary>
+    <div>
+<pre># Watch trace — Hurricane Isaias — run 004
+
+*Draft. Not published. Awaiting QC + expert review.*
+*Supersedes run 003 (NHC Advisory 10, 105 mph Cat 2, 10 PM CDT Oct 8).
+Runs 001–003 and their QC records retained for the audit trail.*
+
+## Trigger
+
+TRG-001/TRG-002: NHC 7:20 AM CT alert, Fri Oct 9, 2026 — Isaias
+strengthened to a **major Category 3 hurricane**, 120 mph sustained,
+959 mb. Material change since run 003 (≥1 category intensification;
+run 003's falsification condition "Cat 3+ reached" has fired).
+
+## Inputs and sources
+
+- NHC via PNJ live updates (Oct 9, ~8:17 AM ET): Air Force Reserve
+  Hurricane Hunter data — 120 mph sustained, higher gusts; minimum
+  central pressure 959 mb (dropsonde). ~245 miles south of Pensacola,
+  moving north-northeast 15 mph. Landfall expected late Friday night /
+  early Saturday. Source:
+  https://www.pnj.com/story/weather/hurricanes/2026/10/09/hurricane-isaias-updates-today-florida-impacts-landfall--live/92152714007/
+- NHC via Clarion Ledger (Oct 9): 7:20 AM CT update — 120 mph, ~170
+  miles SSW of the mouth of the Mississippi River, moving 15 mph.
+  Forecast: brief further strengthening possible, then increasing shear
+  weakens before landfall; expected at landfall as a strong Cat 2.
+  "It would only take about a 6h delay in the onset of the shear to
+  bring a stronger hurricane than expected onshore." Landfall
+  consensus near the Alabama–Florida border. Source:
+  https://www.clarionledger.com/story/weather/hurricane/2026/10/09/isaias-2026-hurricane-tracker-path-spaghetti-models-live-update-mississippi-weather-today-live--live/92159988007/
+- NHC senior specialist (via PNJ): wind field predicted to grow via
+  trough interaction — impacts extend well away from the center; gusty
+  winds well inland over the Southeast after landfall.
+- Warnings (Advisory 10 area, unchanged geography): hurricane warning
+  Ocean Springs, MS → Bay/Gulf County line, FL; storm surge warning
+  mouth of the Mississippi River → Suwannee River, FL; surge up to
+  7 ft; rainfall 4–8 in, localized 15 in; tornado risk east of center.
+- Insured-loss context: Artemis (Oct 8, ~15h before this run):
+  "~Cat 2 landfall at single-digit billion insured loss potential."
+  Written pre-Cat-3; treat as a floor, not a ceiling. Source:
+  https://www.artemis.bm/news/hurricane-isaias-strengthens-cat-2-landfall-at-single-digit-billion-insured-loss-potential-forecast/
+- Florida: Gov. DeSantis expanded state of emergency to 27 North
+  Florida counties (Oct 8).
+- Bond universe: `bond-universe.csv` (10 deals, 26 tranches). Terms
+  re-verified: Hestia Re B att $405m/exh $605m; First Coast Re IV B
+  att $390m (cascading); Bayou Re A att $1.05bn/exh $1.33bn; Sanders
+  Re II att $4.25bn; Everglades Re II 2025-1 D att $6.489bn;
+  Everglades Re II 2024-1 A att $13.309bn/exh $15.309bn (QC-verified);
+  aggregates intact per run 002 erosion finding.
+
+## Exposure mapping
+
+Landfall consensus: near the Alabama–Florida border (Pensacola area),
+late tonight / early Saturday, arriving as a strong Cat 2 after a
+brief Cat 3 peak. The Panhandle is squarely in the core.
+
+**Most sensitive (re-examined per run 003 falsification trigger):**
+- **Hestia Re 2025-1 B** (Kin; FL named storm; per-occurrence; att
+  $405m / exh $605m): Cat 3 at 120 mph with a growing wind field,
+  Panhandle landfall central. A single-digit-billion industry event
+  concentrated on the Panhandle can plausibly generate $400m+ of
+  cedent loss for a Florida-concentrated carrier. Moves from
+  "plausible" (run 003) to **likely threatened** — the call hinges on
+  landfall point vs. Kin's book concentration and the surge share.
+- **First Coast Re IV 2025-1 B** (Security First; FL named storm;
+  cascading per-occurrence; att $390m): same geography, same logic.
+  **Likely threatened** on the same conditions.
+- **Kilimanjaro II Re 2025-1** (Everest Re; regionally-weighted
+  industry-loss): promoted to the **lead tail story**. A Cat 3
+  landfall with a widened wind field and 7-ft surge grows the PCS
+  industry-loss estimate; Artemis's single-digit-billion framing is
+  now likely stale-low. Attachment/exhaustion undisclosed — no
+  attachment call possible, but this is the tranche type most
+  sensitive to the storm overperforming.
+- **Bayou Re 2025-1 A** (Louisiana Citizens; LA; att $1.05bn /
+  exh $1.33bn): center 170 mi SSW of the MS mouth, track east of LA —
+  but the surge warning starts at the Mississippi mouth and the wind
+  field is growing. Downgraded half-step vs run 003 on track, held on
+  surge. Needs a severe surge-heavy realization.
+
+**Severity story only:**
+- **Everglades Re II 2025-1 / 2024-1** (FL Citizens; aggregate; att
+  $6.489bn–$13.309bn): Panhandle under hurricane warning; aggregates
+  intact. Attachment requires a catastrophic outlier, not the
+  forecast event.
+- **Sanders Re II 2025-1** (Allstate; att $4.25bn): effectively
+  unexposed barring catastrophe.
+- **Merna Re Enterprise II** (State Farm; att/exh undisclosed): MS/AL
+  book in the zone; no call possible.
+
+**Marginal:** Alamo Re (TX — west of warnings); Cape Lookout (NC —
+  out of path).
+
+## Hypothesis (indicative, not marks)
+
+Isaias reaching Cat 3 fired run 003's escalation trigger, and the
+hypothesis escalates with it: **the two sub-$500m Florida attachments
+(Hestia B $405m, First Coast B $390m) are now likely threatened if the
+landfall point falls on populated Panhandle coastline near the
+cedents' concentrations** — the surge component (up to 7 ft) and the
+growing wind field both widen the loss footprint beyond the center.
+**Kilimanjaro II is the lead tail position**: if the storm holds
+intensity against the shear forecast, industry-loss estimates move up
+and the undisclosed industry-loss trigger is the first place the
+market will look. Everything above $1bn attachment (Bayou Re A,
+Everglades, Sanders) still requires a severe-to-catastrophic
+realization; aggregates face full retentions.
+
+Sensitivity order: Kilimanjaro II (tail) / Hestia Re B / First Coast
+Re B — then Bayou Re A — then a large gap to everything else.
+
+Confidence: MEDIUM. Track confidence high (landfall tonight, AL–FL
+border consensus); intensity at landfall is the entire game and rests
+on shear timing the models still split on.
+
+Aggregate erosion: unchanged — 2026 season record-quiet; retentions
+most likely intact.
+
+## Falsification conditions
+
+- Landfall at Cat 3+ sustained (shear delayed &gt;6h) → Hestia B /
+  First Coast B move to "attachment probable"; Kilimanjaro II lead
+  confirmed; re-examine Bayou Re A.
+- Shear wins and landfall at Cat 1 → de-escalate to run 003's
+  "plausible" framing; the Cat 3 peak was the error.
+- Landfall east of Panama City → upgrade Everglades/Hestia/First
+  Coast; west into Louisiana → upgrade Bayou Re, downgrade FL.
+- First PCS industry-loss estimate post-landfall is ground truth for
+  Kilimanjaro II; cedent loss reports for Hestia/First Coast.
+
+## Where am I wrong? (for the expert)
+
+1. "Likely threatened" for the two sub-$500m attachments — right
+   call, or still too hot without cedent concentration data?
+2. Is Kilimanjaro II rightly the lead tail, or does the undisclosed
+   attachment make that promotion premature?
+3. Surge vs wind as the near-term loss driver (carried from run 002 —
+   still open, and more urgent now).
+4. Artemis's single-digit-billion figure is pre-Cat-3: how far
+   stale-low should the hypothesis treat it?
+5. Kin concentrations for the Hestia ranking (still open).</pre>
+    </div>
+  </details>
+</article>
+
+<!-- ============================================================
+     RUN 003 — superseded by 004
+     ============================================================ -->
+<article class="run superseded" id="run-003">
+  <div class="run-head">
+    <h2>Run 003 — Cat 2, narrowed tail</h2>
+    <span class="badge superseded">Superseded</span>
+    <span class="badge qc-pass">QC: Pass</span>
+  </div>
+  <p class="supersession-note">Superseded by run 004. Reason: inputs (NHC
+  Advisory 10, 105 mph Cat 2, 10 PM CDT Oct 8) went stale — Isaias escalated
+  to Category 3, firing run 003's own escalation trigger.</p>
+  <p class="meta">Computed from NHC Advisory 10 (10:00 PM CDT, Thu Oct 8, 2026)
+  · QC validated ~11:35 PM EDT, Oct 8, 2026 · Awaiting expert review</p>
+
+  <div class="expert-box">
+    <p class="who">Expert decision — Una Singo, ~11:25 PM EDT Oct 8</p>
+    <p><strong>Decision:</strong> re-run as 003 on the current advisory rather
+    than publish run 002 as-is. Run 002's timestamped hypothesis
+    ("hurricane by Thursday morning, ~110 mph peak Friday, landfall late
+    Friday/early Saturday") stands in the record; leg 1 (hurricane by Thursday
+    morning) confirmed overnight. Staleness of run 002's inputs is noted here
+    rather than patched into the old trace.</p>
+    <p><strong>Open expert question (carried):</strong> the eastward track shift
+    — does the Mobile → Panama City consensus change her read on the run 002
+    open questions (First Coast Re B, Hestia Re's Florida book, Kin
+    concentrations, surge vs wind as the loss driver)? Awaiting her answer.</p>
+  </div>
+
+  <h3>Trigger</h3>
+  <p>TRG-001/TRG-002: NHC Advisory 10 (10:00 PM CDT, Thu Oct 8, 2026) — storm
+  at 105 mph Category 2 (up from 70 mph tropical storm at Advisory 6), central
+  pressure 969 mb, hurricane-force winds extending 15 miles and
+  tropical-storm-force winds 125 miles from center. Material change since
+  run 002 (≥1 category intensification, ~200-mile position advance, forecast
+  now includes a brief Category 3 peak).</p>
+
+  <h3>Hypothesis (indicative, not marks)</h3>
+  <p>Base case (Cat 2 landfall late Friday/early Saturday near the AL–FL
+  border, weakening under shear): still no attachment in the universe is
+  <em>likely</em> threatened — but the margin has narrowed materially since
+  run 002. The two sub-$500m attachments (Hestia B $405m, First Coast B $390m)
+  sit in the central landfall scenario; a direct hit at or above forecast
+  intensity over populated Panhandle coastline makes attachment plausible,
+  where run 002 could only call it conditional. Bayou Re A ($1.05bn) needs a
+  severe, surge-heavy event. If the storm reaches Cat 3 and holds it to
+  landfall (against the shear forecast), re-examine all sub-$2bn attachments
+  urgently and promote Kilimanjaro II to the lead.</p>
+  <p>Sensitivity order: Hestia Re B, First Coast Re B, Bayou Re A, Kilimanjaro
+  II (tail) — then a large gap to everything else.</p>
+  <p>Confidence: MEDIUM (track confidence higher than run 002; landfall
+  intensity hinges entirely on shear timing, which models split on).</p>
+  <p>Aggregate erosion: unchanged from run 002 — 2026 season still
+  record-quiet, retentions most likely intact; Isaias faces essentially full
+  attachments on aggregate covers.</p>
+
+  <h3>Falsification conditions</h3>
+  <ul>
+    <li>Landfall at Cat 3+ (shear forecast wrong) → re-examine all sub-$2bn attachments; Kilimanjaro II industry-loss becomes the lead story; Hestia B / First Coast B move from "plausible" to "likely threatened."</li>
+    <li>Landfall at or below Cat 1 (shear wins decisively) → "no attachment threatened" confirmed; run 003's widened tail was the error.</li>
+    <li>Track shifts &gt;100 km west into Louisiana → upgrade Bayou Re (LA) and Alamo Re (TX); downgrade FL/AL positions.</li>
+    <li>Track shifts east into the Florida peninsula → Everglades, Hestia, First Coast to the top of the sensitivity order.</li>
+    <li>First PCS industry-loss estimate post-landfall is ground truth for Kilimanjaro II.</li>
+  </ul>
+
+  <h3>QC record</h3>
+  <p class="qc-line"><strong>Verdict: PASS.</strong> Eight checks all pass.
+  Storm figures transcribed verbatim from the advisory relay; bond terms
+  independently re-read from the committed universe file; no mismatches.
+  Notes for the expert (non-blocking): the central judgment call — promoting
+  Hestia B / First Coast B from "conditional" to "plausibly threatened" —
+  rests on the Cat 2 landfall staying at or above forecast intensity over
+  populated coast; the expert may reasonably hold the more conservative run-002
+  line. "Briefly Cat 3 early Friday" is an NHC-forecast possibility, not model
+  consensus. Run 002's timestamped hypothesis legs 2–3 remain live and
+  scorable against reality; run 003 does not re-score them.</p>
+
+  <h3>Where am I wrong? (for the expert)</h3>
+  <ol>
+    <li>Shear timing is the whole game: NHC forecasts weakening before landfall, models split on how much. Is the Cat 2 base case right, or should the brief-Cat-3 scenario carry more weight in the hypothesis?</li>
+    <li>Hestia B / First Coast B: at 105 mph with Panhandle landfall central, is "plausibly threatened" the right call — or still too hot, given $390–405m attachments need severe localized loss?</li>
+    <li>Surge vs wind as the near-term loss driver for indemnity bonds (carried from run 002 — still open).</li>
+    <li>Kin concentrations for the Hestia sensitivity ranking (still open).</li>
+    <li>Public proxy for Merna Re's undisclosed attachment (still open).</li>
+    <li>Eastward shift (her open question): does the Mobile → Panama City consensus change her read on First Coast Re B, Hestia Re's Florida book, or the surge-vs-wind question?</li>
+  </ol>
+
+  <details>
+    <summary>Full trace text — trace-20261008-003.md</summary>
+    <div>
+<pre># Watch trace — Hurricane Isaias — run 003
+
+*Draft. Not published. Awaiting expert review (QC: PASS, see
+qc-20261008-003.md).*
+*Supersedes run 002, which is retained as a draft — its inputs (NHC
+Advisory 6, 70 mph tropical storm) are now stale. Run 001 and run 002 and
+their QC records are retained for the audit trail.*
+
+## Addendum — expert decision (Una Singo, ~11:25 PM EDT Oct 8)
+
+**Decision:** re-run as 003 on the current advisory rather than publish
+run 002 as-is. Run 002's timestamped hypothesis ("hurricane by Thursday
+morning, ~110 mph peak Friday, landfall late Friday/early Saturday")
+stands in the record; leg 1 (hurricane by Thursday morning) confirmed
+overnight. Staleness of run 002's inputs is noted here rather than
+patched into the old trace.
+
+**Open expert question (carried):** the eastward track shift — does the
+Mobile → Panama City consensus change her read on the run 002 open
+questions (First Coast Re B, Hestia Re's Florida book, Kin
+concentrations, surge vs wind as the loss driver)? Awaiting her answer;
+folded into this run's "where am I wrong" below.
+
+## Trigger
+
+TRG-001/TRG-002: NHC Advisory 10 (10:00 PM CDT, Thu Oct 8, 2026) —
+storm at 105 mph Category 2 (up from 70 mph tropical storm at Advisory
+6), central pressure 969 mb, hurricane-force winds extending 15 miles
+and tropical-storm-force winds 125 miles from center. Material change
+since run 002 (≥1 category intensification, ~200-mile position advance,
+forecast now includes a brief Category 3 peak).
+
+## Inputs and sources
+
+- NHC Advisory 10 via Pensacola News Journal live updates (accessed Oct
+  8, 2026, ~11:30 PM EDT): max sustained winds 105 mph; ~260 miles
+  south of the mouth of the Mississippi River; moving northeast ~14 mph;
+  minimum central pressure 969 mb (28.62 in). Hurricane-force winds to
+  15 miles, tropical-storm-force winds to 125 miles. Source:
+  https://www.pnj.com/story/weather/hurricanes/2026/10/08/hurricane-isaias-update-national-hurricane-center-location-cone-impacts/92141142007/
+- NHC Advisory 10 via Clarion Ledger live updates (accessed Oct 8,
+  2026, ~11:30 PM EDT): confirms 105 mph Cat 2; forecasters note a
+  chance Isaias peaks as a Category 3 over the Gulf; landfall expected
+  late Friday/early Saturday within the warning area; models range
+  Mobile to Panama City; storm surge up to 7 feet on parts of the
+  Mississippi Gulf Coast. Source:
+  https://www.clarionledger.com/story/weather/hurricane/2026/10/08/isaias-2026-hurricane-tracker-path-spaghetti-models-live-update-mississippi-weather-live-live--live/92148069007/
+- Forecast detail via PNJ (same advisory): additional strengthening
+  expected through early Friday; Isaias should remain a dangerous
+  hurricane approaching the coast Friday night; wind shear expected to
+  increase and weaken intensity before landfall — shear timing is the
+  key uncertainty. Landfall consensus near the Alabama–Florida border
+  (Perdido Key area); tropical-storm-force winds arrive Friday ahead of
+  the center.
+- Watches/warnings (Advisory 10): hurricane warning Ocean Springs, MS
+  → Bay/Gulf County line, FL; tropical storm warning Bay/Gulf County
+  line → Aucilla River, FL; storm surge warning mouth of the
+  Mississippi River → Suwannee River, FL (extended east since run 002);
+  storm surge watch Suwannee River → Yankeetown. Rainfall 4–8 inches,
+  localized up to 15 inches; tornado risk Friday–Saturday east of
+  center.
+- Bond universe: `bond-universe.csv` (10 deals, 26 tranches; committed).
+  Terms re-verified for this run: Hestia Re B att $405m/exh $605m;
+  First Coast Re IV B att $390m (cascading); Bayou Re A att
+  $1.05bn/exh $1.33bn; Sanders Re II att $4.25bn; Everglades Re II
+  2025-1 D att $6.489bn; Everglades Re II 2024-1 A att $13.309bn/exh
+  $15.309bn.
+
+## Exposure mapping (revised)
+
+Landfall consensus has continued east: models range Mobile → Panama
+City, centered near the Alabama–Florida border. The warning area
+(Ocean Springs, MS → Bay/Gulf County line, FL) now fully covers the
+Florida Panhandle positions in the universe. Storm surge is an
+established loss driver (up to 7 ft MS Gulf Coast; warning extended
+east to the Suwannee River) — material for indemnity covers.
+
+**Directly in the footprint:**
+- **Hestia Re 2025-1 B** (Kin; FL named storm; per-occurrence; att
+  $405m / exh $605m): lowest attachment in the universe alongside
+  First Coast B. A Cat 2 (possibly briefly Cat 3) landfall centered on
+  the AL–FL border puts Kin's Florida book in the core wind and surge
+  zone. Most sensitive position — attachment is now plausibly, not
+  merely theoretically, in reach of a direct hit at forecast intensity.
+- **First Coast Re IV 2025-1 B** (Security First; FL named storm;
+  cascading per-occurrence; att $390m): same geography as Hestia;
+  cascading structure. Same plausibility call as Hestia B.
+- **Bayou Re 2025-1 A** (Louisiana Citizens; LA named storm;
+  per-occurrence; att $1.05bn / exh $1.33bn): surge warning begins at
+  the mouth of the Mississippi; Louisiana now on the western edge of
+  the consensus as the track nudged east. Still in the sensitivity
+  list on surge + western-track scenarios, but downgraded a half-step
+  vs run 002.
+- **Kilimanjaro II Re 2025-1** (Everest Re; regionally-weighted
+  industry-loss): a Cat 2+ landfall on the MS/AL/FL coast grows the
+  PCS industry-loss tail. The trigger type most sensitive to the storm
+  overperforming — if Isaias holds Cat 3 to landfall against the shear
+  forecast, this becomes the lead story.
+- **Everglades Re II 2025-1 / 2024-1** (Florida Citizens; FL named
+  storm; indemnity, annual aggregate; attachments $6.489bn–$13.309bn):
+  western Panhandle under hurricane warning. High attachments —
+  severity story only; aggregates intact per run 002 erosion finding
+  (no change — no new landfalls).
+- **Sanders Re II 2025-1** (Allstate; US ex-FL; per-occurrence; att
+  $4.25bn): MS/AL landfall is Allstate territory, but the attachment
+  remains extremely high — effectively unexposed barring a
+  catastrophic outlier.
+- **Merna Re Enterprise II 2026-1** (State Farm; US ex-CA; annual
+  aggregate; att/exh not disclosed): State Farm's MS/AL book in the
+  zone; no attachment call possible (undisclosed).
+
+**Marginal or outside:**
+- **Alamo Re 2026-1** (TWIA; TX): Texas remains west of warnings;
+  only a major westward shift changes this.
+- **Cape Lookout Re 2025-1** (NCIUA; NC): not in the path.
+
+## Hypothesis (indicative, not marks)
+
+Base case (Cat 2 landfall late Friday/early Saturday near the AL–FL
+border, weakening under shear): still no attachment in the universe is
+*likely* threatened — but the margin has narrowed materially since run
+002. The two sub-$500m attachments (Hestia B $405m, First Coast B
+$390m) sit in the central landfall scenario; a direct hit at or above
+forecast intensity over populated Panhandle coastline makes attachment
+plausible, where run 002 could only call it conditional. Bayou Re A
+($1.05bn) needs a severe, surge-heavy event. If the storm reaches Cat 3
+and holds it to landfall (against the shear forecast), re-examine all
+sub-$2bn attachments urgently and promote Kilimanjaro II to the lead.
+
+Sensitivity order: Hestia Re B, First Coast Re B, Bayou Re A,
+Kilimanjaro II (tail) — then a large gap to everything else.
+
+Confidence: MEDIUM (track confidence higher than run 002; landfall
+intensity hinges entirely on shear timing, which models split on).
+
+Aggregate erosion: unchanged from run 002 — 2026 season still
+record-quiet, retentions most likely intact; Isaias faces essentially
+full attachments on aggregate covers.
+
+## Falsification conditions
+
+- Landfall at Cat 3+ (shear forecast wrong) → re-examine all
+  sub-$2bn attachments; Kilimanjaro II industry-loss becomes the lead
+  story; Hestia B / First Coast B move from "plausible" to "likely
+  threatened."
+- Landfall at or below Cat 1 (shear wins decisively) → "no attachment
+  threatened" confirmed; run 003's widened tail was the error.
+- Track shifts &gt;100 km west into Louisiana → upgrade Bayou Re (LA)
+  and Alamo Re (TX); downgrade FL/AL positions.
+- Track shifts east into the Florida peninsula → Everglades, Hestia,
+  First Coast to the top of the sensitivity order.
+- First PCS industry-loss estimate post-landfall is ground truth for
+  Kilimanjaro II.
+
+## Where am I wrong? (for the expert)
+
+1. Shear timing is the whole game: NHC forecasts weakening before
+   landfall, models split on how much. Is the Cat 2 base case right,
+   or should the brief-Cat-3 scenario carry more weight in the
+   hypothesis?
+2. Hestia B / First Coast B: at 105 mph with Panhandle landfall
+   central, is "plausibly threatened" the right call — or still too
+   hot, given $390–405m attachments need severe localized loss?
+3. Surge vs wind as the near-term loss driver for indemnity bonds
+   (carried from run 002 — still open).
+4. Kin concentrations for the Hestia sensitivity ranking (still open).
+5. Public proxy for Merna Re's undisclosed attachment (still open).
+6. Eastward shift (her open question): does the Mobile → Panama City
+   consensus change her read on First Coast Re B, Hestia Re's Florida
+   book, or the surge-vs-wind question?</pre>
+    </div>
+  </details>
+</article>
+
+<!-- ============================================================
+     RUN 002 — superseded by 003
+     ============================================================ -->
+<article class="run superseded" id="run-002">
+  <div class="run-head">
+    <h2>Run 002 — 70 mph, warnings issued</h2>
+    <span class="badge superseded">Superseded</span>
+    <span class="badge qc-pass">QC: Pass</span>
+  </div>
+  <p class="supersession-note">Superseded by run 003. Reason: inputs (NHC
+  Advisory 6, 70 mph tropical storm, Wed Oct 7) went stale — expert decision
+  to re-run on the current advisory (Advisory 10) rather than publish 002
+  as-is.</p>
+  <p class="meta">Computed from NHC Advisory 6 (10:00 PM CDT, Wed Oct 7, 2026)
+  · QC re-validation ~10:45 PM CDT Oct 7, 2026</p>
+
+  <div class="expert-box">
+    <p class="who">Expert correction — Una Singo, ~11:35 PM EDT Oct 7
+    (aggregate erosion)</p>
+    <p><strong>Correction:</strong> the draft underweighted aggregate erosion.
+    For annual-aggregate covers, the right question is not only "is Isaias big
+    enough" but "how much of the aggregate retention has prior season events
+    already eroded."</p>
+    <p><strong>Finding (checked):</strong> the 2026 Atlantic season is
+    record-quiet — 8 named storms before Isaias (Arthur, Bertha, Cristobal,
+    Dolly, Edouard, Fay, Gonzalo, Hanna), all tropical storms, zero hurricanes;
+    Isaias would be the season's first hurricane (strong El Niño shear).
+    Sources: iflscience.com and tcpalm.com articles of Oct 2026.</p>
+    <p><strong>Implication:</strong> with no prior hurricane landfalls,
+    aggregate retentions are most likely largely intact — Isaias faces
+    essentially full attachments on the aggregate covers (Everglades ×2, Merna
+    Re, Alamo Re, Cape Lookout, Kilimanjaro agg tranches). This strengthens the
+    "no attachment threatened" read for aggregates. Residual uncertainty: a
+    tropical storm can still erode where event deductibles are low (Alamo Re
+    carries a $50m event deductible) — cedent-level event losses are not
+    publicly verifiable, so erosion is assessed as minimal, not zero.</p>
+    <p><strong>What changed in the hypothesis:</strong> added the erosion
+    assessment above; sensitivity ordering unchanged.</p>
+  </div>
+
+  <h3>Trigger</h3>
+  <p>TRG-001/TRG-002: NHC Advisory 6 (10:00 PM CDT, Wed Oct 7, 2026) — storm at
+  70 mph (up from 45 mph ~12h earlier), watches upgraded to hurricane and
+  storm-surge warnings, explicit surge forecast issued. Material change since
+  run 001.</p>
+
+  <h3>Hypothesis (indicative, not marks)</h3>
+  <p>Base case (landfall as forecast, Cat 2 MS/AL/FL-panhandle): no attachment
+  in the universe is likely threatened. The lowest attachments ($390m–$1.05bn)
+  would need a direct hit at or above forecast intensity over populated
+  coastline. The intensification trend (45→70 mph in ~12h) and the explicit
+  5–7 ft surge forecast widen the tail vs run 001: if rapid intensification
+  continues into Thursday, re-examine Hestia Re B, Bayou Re A, and First Coast
+  Re B against Thursday's advisories.</p>
+  <p>Sensitivity order unchanged: Hestia Re B, Bayou Re A, First Coast Re B —
+  then a large gap to everything else.</p>
+  <p>Confidence: MEDIUM-LOW (up from low-medium — warnings now issued and track
+  narrowed, but landfall intensity still hinges on shear/dry air and is 36+
+  hours out).</p>
+
+  <h3>Falsification conditions</h3>
+  <ul>
+    <li>Track shifts &gt;100 km west → upgrade Bayou Re (LA) and Alamo Re (TX); downgrade FL/AL positions.</li>
+    <li>Track shifts east into the Florida peninsula → Everglades, Hestia, First Coast to the top.</li>
+    <li>Rapid intensification to Cat 3+ before landfall → re-examine all sub-$2bn attachments; Kilimanjaro industry-loss tail becomes the lead story.</li>
+    <li>Landfall below Cat 1 → "no attachment threat" confirmed.</li>
+    <li>First PCS industry-loss estimate post-landfall is ground truth for Kilimanjaro II.</li>
+  </ul>
+
+  <h3>QC record</h3>
+  <p class="qc-line"><strong>Verdict: PASS</strong> (re-validation; prior
+  record qc-20261008-001 was BLOCKED — both blockers resolved). All tranche
+  figures independently re-derived from the universe CSV; advisory vintage now
+  matches the cited advisory; Everglades maximum attachment corrected to
+  $13.309bn (2024-1 A tranche), $15.309bn correctly excluded as its
+  exhaustion.</p>
+  <p class="qc-line">Notes for the expert (non-blocking): inputs bullet labels
+  the Ocean Springs → Bay/Gulf County Line zone a "Hurricane watch" — Advisory
+  6 upgraded watches to warnings (operative claims correct; fix the bullet
+  label). Two material estimates still cite no base rates or priors (flagged,
+  not blocked; hedged as indicative).</p>
+
+  <h3>Where am I wrong? (for the expert)</h3>
+  <ol>
+    <li>Surge vs wind: am I right to treat the 5–7 ft surge forecast as the bigger near-term loss driver for indemnity bonds than the wind field?</li>
+    <li>Citizens' Panhandle book materiality for the Everglades attachments — still the open question from run 001.</li>
+    <li>Any plausible scenario reaching Allstate's $4.25bn per-occurrence attachment, or is Sanders Re effectively unexposed?</li>
+    <li>Kin concentrations for Hestia Re sensitivity ranking.</li>
+    <li>Public proxy for Merna Re's undisclosed attachment (prior Merna series terms)?</li>
+  </ol>
+
+  <details>
+    <summary>Full trace text — trace-20261008-002.md</summary>
+    <div>
+<pre># Watch trace — Tropical Storm Isaias — run 002
+
+*Draft. Not published. Awaiting QC re-review and expert review.*
+*Supersedes run 001, which QC BLOCKED (stale advisory vintage; wrong-field
+Everglades figure). Run 001 and its QC record are retained for the audit
+trail.*
+
+## Trigger
+
+TRG-001/TRG-002: NHC Advisory 6 (10:00 PM CDT, Wed Oct 7, 2026) — storm at
+70 mph (up from 45 mph ~12h earlier), watches upgraded to hurricane and
+storm-surge warnings, explicit surge forecast issued. Material change since
+run 001.
+
+## Inputs and sources
+
+- NHC Advisory 6 via Clarion Ledger live updates (accessed Oct 7, 2026,
+  ~11:30 PM EDT): max sustained winds 70 mph; ~460 miles south-southwest
+  of the mouth of the Mississippi River; moving east-northeast ~9 mph.
+  Hurricane warning: Ocean Springs, MS → Bay/Gulf County Line, FL (incl.
+  Alabama coast). Tropical storm watch: west of Ocean Springs to
+  Jefferson/Plaquemines Parish line, LA; east of Bay/Gulf County Line to
+  Aucilla River, FL. Storm surge warning: mouth of the Mississippi River
+  → Steinhatchee River, FL. Forecast: hurricane by Thursday morning,
+  peak ~110 mph (Cat 2) early Friday, landfall late Friday/early Saturday
+  along the MS coast to western Florida Panhandle. Source:
+  https://www.clarionledger.com/story/weather/hurricane/2026/10/07/tropical-storm-isaias-2026-hurricane-tracker-path-spaghetti-models-live-update-mississippi-live--live/92133601007/
+- NHC Advisory 6 via CNN (accessed Oct 7, 2026): confirms 70 mph, 460 miles
+  SW of Mississippi mouth; peak Cat 2 at 110 mph early Friday, weakening
+  slightly before landfall Friday night/early Saturday; landfall zone
+  narrowed to Mississippi coast → western Florida Panhandle. Source:
+  https://www.cnn.com/2026/10/06/weather/tropical-storm-isaias-hurricane-track-gulf-climate?cid=external-feeds_iluminar_meta
+- Storm surge forecast via Clarion Ledger (same advisory): 5–7 ft
+  Ocean Springs → Indian Pass, FL, and Mobile Bay; 3–5 ft mouth of MS →
+  Ocean Springs; 4–6 ft Indian Pass → Steinhatchee River; 2–4 ft
+  Steinhatchee → Yankeetown. Rainfall 3–7 inches central Gulf Coast
+  (SE Louisiana → FL Panhandle), localized up to 10 inches.
+- Run 001 QC record (BLOCKED): corrected here — (a) advisory vintage now
+  matches cited advisory; (b) Everglades maximum attachment corrected to
+  $13.309bn (2024-1 A tranche); $15.309bn was its exhaustion.
+- Bond universe: `data/bond-universe.csv` (10 deals, 26 tranches; committed).
+
+## Exposure mapping (revised)
+
+Landfall zone has narrowed to MS coast → western FL Panhandle, with
+hurricane warnings now (not watches) from Ocean Springs, MS to the
+Bay/Gulf County line, FL. Storm surge is now an explicit loss driver
+(5–7 ft in the core zone) — material for indemnity covers, which pay on
+the cedent's actual losses including surge-driven flood where covered.
+
+**Directly in the footprint:**
+- **Bayou Re 2025-1** (Louisiana Citizens; LA named storm; per-occurrence;
+  att $1.05bn / exh $1.33bn): storm-surge warning begins at the mouth of
+  the Mississippi — eastern Louisiana parishes are in the surge zone.
+  Wind risk still concentrated east; relevance rising with the westward
+  edge of the cone now carrying warnings into Louisiana.
+- **Sanders Re II 2025-1** (Allstate; US ex-FL; per-occurrence; attaches
+  at $4.25bn): MS/AL now the central landfall scenario — squarely Allstate
+  territory. Attachment still very high; needs a severe event.
+- **Merna Re II 2026-1** (State Farm; US ex-CA; annual aggregate;
+  att/exh not disclosed): State Farm's MS/AL book is directly in the
+  warning zone. No attachment call possible (undisclosed).
+- **Kilimanjaro II Re 2025-1** (Everest Re; regionally-weighted
+  industry-loss): rapid intensification trend + explicit surge forecast
+  raise the PCS industry-loss tail. This is the trigger type most
+  sensitive to the storm overperforming.
+- **Everglades Re II 2025-1 / 2024-1** (Florida Citizens; FL named storm;
+  indemnity, annual aggregate; attachments $6.489bn–$13.309bn): western
+  Panhandle (to Bay/Gulf county line) under hurricane warning. High
+  attachments — severity story only.
+- **Hestia Re 2025-1** (Kin; FL named storm; per-occurrence; att
+  $405m/$605m): lowest attachments in the universe; western Panhandle
+  exposure. Most sensitive position IF the eastern half of the cone
+  verifies — still heavily conditional.
+- **First Coast Re IV 2025-1** (Security First; FL named storm; cascading;
+  attaches above $390m/$640m): FL wind; in-zone for the eastern track
+  scenarios.
+
+**Marginal or outside:**
+- **Alamo Re 2026-1** (TWIA; TX): Texas remains west of warnings; only a
+  major westward shift changes this.
+- **Cape Lookout Re 2025-1** (NCIUA; NC): not in the path.
+
+## Hypothesis (indicative, not marks)
+
+Base case (landfall as forecast, Cat 2 MS/AL/FL-panhandle): no attachment
+in the universe is likely threatened. The lowest attachments ($390m–
+$1.05bn) would need a direct hit at or above forecast intensity over
+populated coastline. The intensification trend (45→70 mph in ~12h) and
+the explicit 5–7 ft surge forecast widen the tail vs run 001: if rapid
+intensification continues into Thursday, re-examine Hestia Re B, Bayou Re
+A, and First Coast Re B against Thursday's advisories.
+
+Sensitivity order unchanged: Hestia Re B, Bayou Re A, First Coast Re B —
+then a large gap to everything else.
+
+Confidence: MEDIUM-LOW (up from low-medium — warnings now issued and
+track narrowed, but landfall intensity still hinges on shear/dry air and
+is 36+ hours out).
+
+## Falsification conditions
+
+- Track shifts &gt;100 km west → upgrade Bayou Re (LA) and Alamo Re (TX);
+  downgrade FL/AL positions.
+- Track shifts east into the Florida peninsula → Everglades, Hestia,
+  First Coast to the top.
+- Rapid intensification to Cat 3+ before landfall → re-examine all
+  sub-$2bn attachments; Kilimanjaro industry-loss tail becomes the lead
+  story.
+- Landfall below Cat 1 → "no attachment threat" confirmed.
+- First PCS industry-loss estimate post-landfall is ground truth for
+  Kilimanjaro II.
+
+## Addendum — expert correction (Una Singo, ~11:35 PM EDT Oct 7)
+
+**Correction:** the draft underweighted aggregate erosion. For annual-aggregate
+covers, the right question is not only "is Isaias big enough" but "how much
+of the aggregate retention has prior season events already eroded."
+
+**Finding (checked):** the 2026 Atlantic season is record-quiet — 8 named
+storms before Isaias (Arthur, Bertha, Cristobal, Dolly, Edouard, Fay,
+Gonzalo, Hanna), all tropical storms, zero hurricanes; Isaias would be the
+season's first hurricane (strong El Niño shear). Sources:
+https://www.iflscience.com/where-are-all-the-atlantic-hurricanes-in-2026-you-can-thank-an-angry-el-nino-for-the-chilled-storm-season-84794 ;
+https://www.tcpalm.com/story/weather/hurricanes/2026/10/02/when-hurricane-season-ends-florida-how-many-storms-names-record-breaking/92053310007/
+
+**Implication:** with no prior hurricane landfalls, aggregate retentions
+are most likely largely intact — Isaias faces essentially full attachments
+on the aggregate covers (Everglades ×2, Merna Re, Alamo Re, Cape Lookout,
+Kilimanjaro agg tranches). This strengthens the "no attachment threatened"
+read for aggregates. Residual uncertainty: a tropical storm can still erode
+where event deductibles are low (Alamo Re carries a $50m event deductible)
+— cedent-level event losses are not publicly verifiable, so erosion is
+assessed as minimal, not zero.
+
+**What changed in the hypothesis:** added the erosion assessment above;
+sensitivity ordering unchanged.
+
+## Where am I wrong? (for the expert)
+
+1. Surge vs wind: am I right to treat the 5–7 ft surge forecast as the
+   bigger near-term loss driver for indemnity bonds than the wind field?
+2. Citizens' Panhandle book materiality for the Everglades attachments —
+   still the open question from run 001.
+3. Any plausible scenario reaching Allstate's $4.25bn per-occurrence
+   attachment, or is Sanders Re effectively unexposed?
+4. Kin concentrations for Hestia Re sensitivity ranking.
+5. Public proxy for Merna Re's undisclosed attachment (prior Merna
+   series terms)?</pre>
+    </div>
+  </details>
+</article>
+
+<!-- ============================================================
+     RUN 001 — superseded by 002
+     ============================================================ -->
+<article class="run superseded" id="run-001">
+  <div class="run-head">
+    <h2>Run 001 — first light</h2>
+    <span class="badge superseded">Superseded</span>
+    <span class="badge qc-blocked">QC: Blocked</span>
+  </div>
+  <p class="supersession-note">Superseded by run 002. Reason: QC blocked —
+  stale advisory inputs (Advisory 4 storm data wearing an Advisory 5A label)
+  and a wrong-field Everglades figure ($15.309bn was exhaustion, not
+  attachment). Run 002 re-ran on Advisory 6 with both corrected.</p>
+  <p class="meta">Claimed NHC Advisory 5A (7:00 PM CDT, Wed Oct 7, 2026) ·
+  QC record ~10:30 PM CDT Oct 7, 2026 · Never published</p>
+
+  <h3>Trigger</h3>
+  <p>TRG-001/TRG-002: NHC Advisory 5A (7:00 PM CDT, Wed Oct 7, 2026) — storm
+  named earlier today, steady strengthening, material forecast (Cat 2 peak,
+  northern Gulf Coast landfall). First run of the v1 live watch.</p>
+
+  <h3>Hypothesis (indicative, not marks)</h3>
+  <p>IF the current forecast verifies (Cat 2 landfall near Pensacola/Mobile,
+  late Fri/early Sat): no attachment in the universe is likely threatened.
+  Expected industry loss for a Cat 2 in the AL/MS/FL-panhandle corridor is
+  well below the attachment points of every bond in the set — the lowest
+  attachments ($390m–$1.05bn on First Coast B, Hestia B, Bayou Re) would
+  require a direct hit on populated coastline at or above forecast intensity.
+  The most sensitive positions, in order: Hestia Re B ($405m att,
+  per-occurrence, FL), Bayou Re A ($1.05bn att, per-occurrence, LA),
+  First Coast Re B ($390m att, cascading, FL). Everything else needs either
+  a stronger storm or a track shift.</p>
+  <p>Confidence: LOW-MEDIUM. The storm is 45 mph, 60+ hours from landfall,
+  track confidence is below average, and intensity guidance explicitly cites
+  dry air and shear as wildcards.</p>
+
+  <h3>Falsification conditions</h3>
+  <ul>
+    <li>Track shifts &gt;100 km west of current forecast → downgrade FL/AL exposure, upgrade Bayou Re (LA) and Alamo Re (TX).</li>
+    <li>Track shifts east into the Florida peninsula → Everglades, Hestia, and First Coast move to the top of the sensitivity list.</li>
+    <li>Landfall intensity below Cat 1 → "no attachment threat" confirmed; hypothesis stands.</li>
+    <li>Landfall at/above forecast Cat 2 with a direct Panhandle hit → re-examine Hestia B and Bayou Re A against actual damage reports.</li>
+    <li>First PCS industry-loss estimate post-landfall is ground truth for Kilimanjaro II's industry-loss trigger.</li>
+  </ul>
+
+  <h3>QC record — BLOCKED</h3>
+  <p class="qc-line"><strong>Verdict: BLOCKED. Two blockers, both mechanical
+  and fixable by re-running the watch agent — no judgment changes
+  required.</strong></p>
+  <p class="qc-line"><strong>B1 — Advisory/input mismatch and
+  staleness.</strong> The trace claims computation from NHC Advisory 5A (7 PM
+  CDT, 65 mph) but uses Advisory 4 (10 AM CDT, 45 mph) data; Advisory 6
+  (10 PM CDT, 70 mph, warnings upgraded) is now the latest. Fix: re-run the
+  watch agent on Advisory 6; cite the advisory actually used for every
+  number.</p>
+  <p class="qc-line"><strong>B2 — Everglades attachment range.</strong>
+  "Attachments are high ($6.489bn–$15.309bn across tranches)" — $15.309bn is
+  the 2024-1 A-tranche <em>exhaustion</em>, not an attachment. Correct:
+  attachments across Everglades Re II 2025-1 and 2024-1 range
+  <strong>$6.489bn–$13.309bn</strong>.</p>
+  <p class="qc-line">Both blockers were resolved in run 002's re-validation.
+  Per the QC agent's own sign-off: <em>"If this record passed something wrong,
+  that is the reviewer's defect, recorded the same way."</em></p>
+
+  <h3>Where am I wrong? (for the expert)</h3>
+  <ol>
+    <li>Am I overweighting the Panhandle given NHC's own below-average track confidence — should the cone-wide view (SE LA to FL Big Bend) dominate?</li>
+    <li>Is Citizens' Panhandle book actually material relative to its south-Florida concentrations for the Everglades attachments?</li>
+    <li>For Allstate's $4.25bn per-occurrence attachment: is there any plausible Cat 2 scenario in this corridor that gets there, or should Sanders Re be called effectively unexposed?</li>
+    <li>Kin's geographic concentrations — anything about Hestia Re's book I'm missing that changes its sensitivity ranking?</li>
+    <li>Merna Re's undisclosed attachment: is there a public proxy (e.g., prior Merna series terms) I should be using instead of "no call"?</li>
+  </ol>
+
+  <details>
+    <summary>Full trace text — trace-20261008-001.md</summary>
+    <div>
+<pre># Watch trace — Tropical Storm Isaias — run 001
+
+*Draft. Not published. Awaiting QC review and expert review.*
+
+## Trigger
+
+TRG-001/TRG-002: NHC Advisory 5A (7:00 PM CDT, Wed Oct 7, 2026) — storm named
+earlier today, steady strengthening, material forecast (Cat 2 peak, northern
+Gulf Coast landfall). First run of the v1 live watch.
+
+## Inputs and sources
+
+- NHC Advisory 5A via SaltyForecast tracker (accessed Oct 7, 2026, ~11:30 PM
+  EDT): TS Isaias, max sustained winds 45 mph (11 AM advisory), ~700 miles SW
+  of Pensacola, moving east-northeast ~8 mph. Forecast peak ~109 mph (Cat 2)
+  around Fri 4 PM CT. Closest approach to Perdido Key (~5 miles) around Sat
+  1 AM CT. Earliest reasonable TS-wind arrival Perdido Key Fri 12 PM CT,
+  most likely Fri 6 PM CT. Source: https://saltyforecast.com/tropics
+- NHC 11 AM advisory via Tallahassee Democrat (accessed Oct 7, 2026):
+  intensifying ~5 mph per advisory; hurricane and tropical storm watches up
+  on the northern Gulf Coast; landfall most likely between Mobile and Destin,
+  centered on Pensacola. Source:
+  https://www.tallahassee.com/story/news/hurricane/2026/10/07/tropical-storm-isaias-forecast-florida-on-hurricane-watch-track-models/92134199007/
+- Forecast evolution via EnergyNewsBeat NHC advisory table (accessed Oct 7,
+  2026): Adv 1→2 held 85 kt peak; Adv 3 raised peak to 95 kt and shifted the
+  72h point east to 30.8N 87.7W (inland SW Alabama). NHC discussion notes
+  "below-average track confidence." Source:
+  https://energynewsbeat.com/big-oil-companies/tropical-storm-isaias-threatens-gulf-oil-and-refineries-with-diesel-already-near-a-record/
+- Artemis.bm on Isaias formation (accessed Oct 7, 2026): TD Nine at
+  22.1N 95.0W; NHC forecasts hurricane Thursday, Cat 2 (~100 mph) at
+  landfall. Source:
+  https://www.artemis.bm/news/tropical-storm-isaias-set-to-form-nhc-forecasts-hurricane-prior-to-gulf-coast-landfall/
+- Bond universe: `data/bond-universe.csv` (10 deals, 26 tranches, committed
+  to repo; Artemis-sourced, Oct 8, 2026).
+
+## Exposure mapping
+
+Method: compare the NHC forecast landfall zone (Mobile–Destin corridor,
+centered Pensacola; impacts far SE Louisiana to Florida Panhandle) against
+each bond's covered area. No bond is "at risk" in any actuarial sense at
+this stage — this is geographic footprint overlap only, ~60+ hours before
+landfall, with below-average track confidence.
+
+**Directly in the footprint:**
+- **Bayou Re 2025-1** (Louisiana Citizens; LA named storm; per-occurrence;
+  att $1.05bn / exh $1.33bn): far southeastern Louisiana inside the rainfall
+  outlook; wind risk concentrated on eastern parishes. Western edge of the
+  forecast — a westward track shift raises relevance sharply.
+- **Sanders Re II 2025-1** (Allstate; US ex-FL named storm; per-occurrence;
+  attaches at $4.25bn Allstate losses): Allstate has AL/MS/LA books. But
+  $4.25bn attachment needs a very large event — a Cat 2 in this corridor
+  is unlikely to get there alone.
+- **Merna Re Enterprise II 2026-1** (State Farm; US ex-CA multi-peril;
+  annual aggregate; att/exh not disclosed): State Farm's AL/MS/LA exposure
+  is real; aggregate structure means season-to-date losses count, but
+  attachment level is undisclosed so no call is possible on proximity.
+- **Kilimanjaro II Re 2025-1** (Everest Re; regionally-weighted
+  industry-loss): any landfall generating PCS industry loss in the region
+  contributes. Trigger depends on industry aggregates, not any single
+  insurer's book — the right lens if the storm overperforms.
+- **Everglades Re II 2025-1 / 2024-1** (Florida Citizens; FL named storm;
+  indemnity, annual aggregate): Panhandle is inside the landfall zone and
+  Citizens writes there. Attachments are high ($6.489bn–$15.309bn across
+  tranches) — this is a severity story, not a frequency one.
+- **Hestia Re 2025-1** (Kin; FL named storm; per-occurrence; att
+  $405m/$605m): lowest attachments in the universe. IF the Panhandle takes
+  a direct Cat 2 hit over Kin concentrations, this is the most sensitive
+  position — heavily conditional.
+- **First Coast Re IV 2025-1** (Security First; FL named storm; cascading
+  per-occurrence; attaches above $390m/$640m): FL wind exposure; cascading
+  structure adds complexity to any loss-path analysis.
+
+**Marginal or outside:**
+- **Alamo Re 2026-1** (TWIA; TX named storm + severe thunderstorm): Texas
+  is west of the forecast cone. Only a major westward shift or far-east-TX
+  severe weather brings it into play.
+- **Cape Lookout Re 2025-1** (NCIUA; NC named storm): not in the path.
+
+## Hypothesis (indicative, not marks)
+
+IF the current forecast verifies (Cat 2 landfall near Pensacola/Mobile,
+late Fri/early Sat): no attachment in the universe is likely threatened.
+Expected industry loss for a Cat 2 in the AL/MS/FL-panhandle corridor is
+well below the attachment points of every bond in the set — the lowest
+attachments ($390m–$1.05bn on First Coast B, Hestia B, Bayou Re) would
+require a direct hit on populated coastline at or above forecast intensity.
+The most sensitive positions, in order: Hestia Re B ($405m att,
+per-occurrence, FL), Bayou Re A ($1.05bn att, per-occurrence, LA),
+First Coast Re B ($390m att, cascading, FL). Everything else needs either
+a stronger storm or a track shift.
+
+Confidence: LOW-MEDIUM. The storm is 45 mph, 60+ hours from landfall,
+track confidence is below average, and intensity guidance explicitly cites
+dry air and shear as wildcards.
+
+## Falsification conditions
+
+- Track shifts &gt;100 km west of current forecast → downgrade FL/AL
+  exposure, upgrade Bayou Re (LA) and Alamo Re (TX).
+- Track shifts east into the Florida peninsula → Everglades, Hestia,
+  and First Coast move to the top of the sensitivity list.
+- Landfall intensity below Cat 1 → "no attachment threat" confirmed;
+  hypothesis stands.
+- Landfall at/above forecast Cat 2 with a direct Panhandle hit →
+  re-examine Hestia B and Bayou Re A against actual damage reports.
+- First PCS industry-loss estimate post-landfall is ground truth for
+  Kilimanjaro II's industry-loss trigger.
+
+## Where am I wrong? (for the expert)
+
+1. Am I overweighting the Panhandle given NHC's own below-average track
+   confidence — should the cone-wide view (SE LA to FL Big Bend) dominate?
+2. Is Citizens' Panhandle book actually material relative to its
+   south-Florida concentrations for the Everglades attachments?
+3. For Allstate's $4.25bn per-occurrence attachment: is there any
+   plausible Cat 2 scenario in this corridor that gets there, or should
+   Sanders Re be called effectively unexposed?
+4. Kin's geographic concentrations — anything about Hestia Re's book I'm
+   missing that changes its sensitivity ranking?
+5. Merna Re's undisclosed attachment: is there a public proxy (e.g.,
+   prior Merna series terms) I should be using instead of "no call"?</pre>
+    </div>
+  </details>
+</article>
+
+<footer class="site-footer">
+  FloridaMan — a zero-based agentic ILS product. Hypotheses are indicative,
+  never pricing. Full traces and QC records are the audit trail.
+  Run files: <span class="meta">watch/isaias/trace-20261008-001.md,
+  trace-20261008-002.md, trace-20261008-003.md, trace-20261009-004.md and
+  qc-20261008-001.md, qc-20261008-002.md, qc-20261008-003.md,
+  qc-20261009-004.md</span>
+</footer>
+
+</main>
+</body>
+</html>
