@@ -1,0 +1,35 @@
+Subject: [ACTION] Review Isaias run 004 — Hestia B / First Coast B likely threatened on direct Panhandle hit
+From: FloridaMan Watch <watch@floridaman.example>
+To: {{expert_email}}
+
+A QC-passed hypothesis needs your judgment. The pipeline holds until you
+decide — nothing publishes unreviewed.
+
+Run 004 · QC PASS (8/8 checks) · drafted from NHC 7:20 AM CT alert, Oct 9, 2026
+Trigger: TRG-001/TRG-002 — Cat 3 escalation (≥1 category since run 003)
+
+HYPOTHESIS (indicative):
+Hestia Re B ($405m) and First Coast Re IV B ($390m) are likely threatened
+if the landfall point falls on populated Panhandle coastline near the
+cedents' concentrations. Kilimanjaro II (Everest Re, industry-loss) is the
+lead tail position. Everything above $1bn attachment (Bayou Re A,
+Everglades, Sanders) still requires a severe-to-catastrophic realization;
+aggregates face full retentions. Confidence: medium.
+
+WHERE AM I WRONG? (the agent's standing question)
+1. "Likely threatened" for the two sub-$500m attachments — right call, or
+   still too hot without cedent concentration data?
+2. Is Kilimanjaro II rightly the lead tail, or does the undisclosed
+   attachment make that promotion premature?
+3. Surge vs wind as the near-term loss driver?
+4. Artemis's single-digit-billion figure was written pre-Cat-3: how far
+   stale-low should the hypothesis treat it?
+5. Kin concentrations for the Hestia ranking?
+
+Full trace: {{trace_url}}
+
+Review needed within 12h — the pipeline holds until you judge.
+
+  Approve & publish:  {{approve_url}}  (one tap; single-use token, 72h expiry)
+  Correct:            {{correct_url}}  (what changed + why → recorded with your name, carried forward)
+  Challenge:          {{challenge_url}} (counter-view recorded → triggers re-run)

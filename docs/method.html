@@ -8,70 +8,87 @@
 <meta name="description" content="The FloridaMan loop: draft, QC, expert, publish, score. Two kinds of wrong. Why there is no dashboard.">
 </head>
 <body>
-<main>
+<div class="wrap">
 
-<header class="site-header">
-  <p class="brand">FloridaMan</p>
-  <p class="tagline">The trace is the product.</p>
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="storms/isaias.html">Isaias watch</a>
-    <a href="universe.html">Bond universe</a>
-    <a href="method.html">Method</a>
-  </nav>
-</header>
+  <header class="masthead">
+    <div class="brand"><a href="index.html">FloridaMan</a></div>
+    <nav class="nav">
+      <a href="storms/isaias.html">Live watch</a>
+      <a href="scorecard.html">Scorecards</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="inbox.html">Expert inbox</a>
+    </nav>
+  </header>
 
-<p class="kicker">How it works</p>
-<h1>The loop</h1>
+  <h1>The loop</h1>
+  <p class="lede">Zero-based, the work reorganizes around a five-step loop.
+  Agents do the assembly; a QC agent checks the mechanics; the human expert
+  judges the hypothesis; the published trace carries everything; reality
+  scores the predictions after the event.</p>
 
-<p class="lede">Zero-based, the work reorganizes around a five-step loop. Agents
-do the assembly; a QC agent checks the mechanics; the human expert judges the
-hypothesis; the published trace carries everything; reality scores the
-predictions after the event.</p>
+  <div class="card">
+    <p><b>1 · Draft.</b> Events trigger agents — a storm being named, an
+    advisory issued, an intensity change. Nothing starts with a human opening
+    an app. The watch agent drafts an exposure hypothesis: trigger, inputs
+    and sources, exposure mapping, the hypothesis, falsification conditions,
+    and "where am I wrong?"</p>
+    <p><b>2 · QC.</b> A QC reviewer agent validates mechanics only: source
+    resolution, independent recomputation of every figure, units, input
+    freshness, falsification specificity, language audit, and the expert
+    handoff. The hypothesis itself is never QC's to judge. Verdict: PASS or
+    BLOCKED, with named blockers.</p>
+    <p><b>3 · Expert.</b> The human is the senior expert. The agent asks one
+    standing question: <i>"where am I wrong?"</i> Corrections and decisions
+    enter the trace verbatim as expert addenda — the expert's judgment is the
+    scarce resource, and it compounds instead of repeating.</p>
+    <p><b>4 · Publish.</b> The QC-passed, expert-reviewed hypothesis publishes
+    with its full trace: every number linked to its source and its reasoning.
+    If it isn't traceable, it doesn't ship. Superseded runs stay in the
+    record, visibly marked, for the audit trail.</p>
+    <p style="margin-bottom:0"><b>5 · Score.</b> Reality is the audit. Every
+    hypothesis ships with timestamped kill conditions — track shifts,
+    intensity outcomes, the first PCS industry-loss estimate as ground truth.
+    Predictions are scored against what actually happened, and the calibration
+    record compounds.</p>
+  </div>
 
-<div class="loop" aria-label="The loop">
-  <div class="step"><span class="n">1</span><span class="t">Draft</span><div class="d">Events trigger agents — a storm being named, an advisory issued, an intensity change. Nothing starts with a human opening an app. The watch agent drafts an exposure hypothesis: trigger, inputs and sources, exposure mapping, the hypothesis, falsification conditions, and "where am I wrong?"</div></div>
-  <div class="step"><span class="n">2</span><span class="t">QC</span><div class="d">A QC reviewer agent validates mechanics only: source resolution, independent recomputation of every figure, units, input freshness, falsification specificity, language audit, and the expert handoff. The hypothesis itself is never QC's to judge. Verdict: PASS or BLOCKED, with named blockers.</div></div>
-  <div class="step"><span class="n">3</span><span class="t">Expert</span><div class="d">The human is the senior expert. The agent asks one standing question: "where am I wrong?" Corrections and decisions enter the trace verbatim as expert addenda — the expert's judgment is the scarce resource, and it compounds instead of repeating.</div></div>
-  <div class="step"><span class="n">4</span><span class="t">Publish</span><div class="d">The QC-passed, expert-reviewed hypothesis publishes with its full trace: every number linked to its source and its reasoning. If it isn't traceable, it doesn't ship. Superseded runs stay in the record, visibly marked, for the audit trail.</div></div>
-  <div class="step"><span class="n">5</span><span class="t">Score</span><div class="d">Reality is the audit. Every hypothesis ships with timestamped kill conditions — track shifts, intensity outcomes, the first PCS industry-loss estimate as ground truth. Predictions are scored against what actually happened, and the calibration record compounds.</div></div>
-</div>
-
-<div class="doctrine">
   <h3>The two kinds of wrong</h3>
-  <p><strong>A disproven hypothesis is the job working.</strong> The agent puts
-  forward falsifiable claims with named kill conditions; reality kills some of
-  them; that is the loop functioning. Wrong hypotheses are acceptable.</p>
-  <p><strong>Wrong arithmetic, a stale source, or a claim without grounding is
-  a defect</strong> — of the draft, or of the QC agent that passed it, recorded
-  the same way. The QC agent's own sign-off says so: <em>"If this record passed
-  something wrong, that is the reviewer's defect, recorded the same
-  way."</em></p>
+  <div class="card">
+    <p><strong>A disproven hypothesis is the job working.</strong> The agent
+    puts forward falsifiable claims with named kill conditions; reality kills
+    some of them; that is the loop functioning. Wrong hypotheses are
+    acceptable.</p>
+    <p style="margin-bottom:0"><strong>Wrong arithmetic, a stale source, or a
+    claim without grounding is a defect</strong> — of the draft, or of the QC
+    agent that passed it, recorded the same way. The QC agent's own sign-off
+    says so: <em>"If this record passed something wrong, that is the
+    reviewer's defect, recorded the same way."</em></p>
+  </div>
+
+  <h2>Why there is no dashboard</h2>
+  <p>A better dashboard is not reimagination. Ten screens instead of twenty is
+  not reimagination. Reimagination starts by throwing away UI/UX-driven
+  thinking — the assumption that work happens when a human opens an
+  application and clicks through a workflow — and asking what the work
+  actually is.</p>
+  <p>In this work, the answer is: <strong>the interface is a chronological
+  trace feed.</strong> The system comes to the human, and only when there is
+  something worth their judgment. The human never "checks the system." Silence
+  is correct: no trigger, no output. The trace is not a log for debugging — it
+  is the shared ground truth between the agent and the expert, and the thing
+  compliance can inspect.</p>
+  <p>The dashboard test: a screen answering <i>"what should I look at?"</i> is
+  a dashboard; a screen answering <i>"what happened, in order?"</i> is a
+  record. FloridaMan ships only records.</p>
+  <p>See it in action: the <a href="storms/isaias.html">Isaias watch feed</a>
+  is four runs of this loop, unedited — including the run QC blocked and the
+  superseded drafts that keep the audit trail honest.</p>
+
+  <div class="footer">
+    <span>Open source · <a href="https://github.com/Una95Singo/FloridaMan/tree/main/agents">agents/</a> · <a href="https://github.com/Una95Singo/FloridaMan">repo</a></span>
+    <span><a href="universe.html">Bond universe</a> · Hypotheses are indicative, never pricing.</span>
+  </div>
+
 </div>
-
-<h2>Why there is no dashboard</h2>
-
-<p>A better dashboard is not reimagination. Ten screens instead of twenty is
-not reimagination. Reimagination starts by throwing away UI/UX-driven thinking
-— the assumption that work happens when a human opens an application and
-clicks through a workflow — and asking what the work actually is.</p>
-
-<p>In this work, the answer is: <strong>the interface is a chronological trace
-feed.</strong> The system comes to the human, and only when there is something
-worth their judgment. The human never "checks the system." Silence is correct:
-no trigger, no output. The trace is not a log for debugging — it is the shared
-ground truth between the agent and the expert, and the thing compliance can
-inspect.</p>
-
-<p>See it in action: the <a href="storms/isaias.html">Isaias watch feed</a> is
-four runs of this loop, unedited — including the run QC blocked and the
-superseded drafts that keep the audit trail honest.</p>
-
-<footer class="site-footer">
-  FloridaMan — a zero-based agentic ILS product. Hypotheses are indicative,
-  never pricing. Full traces and QC records are the audit trail.
-</footer>
-
-</main>
 </body>
 </html>

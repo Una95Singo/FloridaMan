@@ -1,0 +1,25 @@
+Subject: [FloridaMan] {{Storm}} scorecard — confirmed {{X}}/{{Y}}
+From: FloridaMan Watch <watch@floridaman.example>
+To: {{subscriber_email}}
+List-Unsubscribe: <{{unsubscribe_url}}>
+
+Reality is the audit. Within 72h of dissipation, every timestamped
+hypothesis from the {{Storm}} watch, scored against what happened.
+
+VERDICTS (runs):
+{{#runs}}
+- Run {{run_number}} ({{timestamp}}): {{hypothesis_summary}} → {{verdict: confirmed|refuted|partial}}
+{{/runs}}
+
+ERROR-TYPE SPLIT:
+- Hypothesis errors (expected, learned from): {{n_hypothesis}} — a disproven
+  call is the job working; each names the assumption that failed.
+- Mechanical errors (target zero): {{n_mechanical}} — wrong arithmetic,
+  stale sources, ungrounded claims; each recorded as a defect with its fix.
+
+CALIBRATION: {{confidence}} calls resolved {{outcome_rate}}.
+
+Full scorecard: {{scorecard_url}}
+
+Wrong hypotheses welcome. Wrong arithmetic isn't.
+Unsubscribe: {{unsubscribe_url}}

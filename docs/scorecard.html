@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scorecards — FloridaMan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="brand"><a href="index.html">FloridaMan</a></div>
+    <nav class="nav">
+      <a href="storms/isaias.html">Live watch</a>
+      <a href="scorecard.html">Scorecards</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="inbox.html">Expert inbox</a>
+    </nav>
+  </header>
+
+  <h1>Scorecards</h1>
+  <p class="lede">Reality is the audit. Within 72 hours of dissipation,
+  every timestamped hypothesis is scored against what actually happened —
+  and the score separates the two kinds of wrong: a disproven hypothesis
+  (the job working) from a miscalculation (a defect).</p>
+
+  <h3>Isaias — scoring pending dissipation</h3>
+  <div class="card">
+    <p><span class="pill live">Live storm</span></p>
+    <p>The scorecard publishes within 72h of dissipation. What will be
+    scored — the legs already timestamped:</p>
+    <table class="score-table">
+      <tr><th>Run</th><th>Timestamped call</th><th>Outcome</th><th>Verdict</th></tr>
+      <tr><td class="mono">002</td><td>Hurricane by Thursday morning; ~110 mph peak Friday; landfall late Fri / early Sat</td><td><span class="small">awaiting event</span></td><td><span class="pill pending">Pending</span></td></tr>
+      <tr><td class="mono">003</td><td>No attachment likely threatened at Cat 2; Hestia B / First Coast B "plausible" on direct hit</td><td><span class="small">awaiting event</span></td><td><span class="pill pending">Pending</span></td></tr>
+      <tr><td class="mono">004</td><td>Hestia B / First Coast B "likely threatened" on direct Panhandle hit; Kilimanjaro II leads tail</td><td><span class="small">awaiting event</span></td><td><span class="pill pending">Pending</span></td></tr>
+      <tr><td class="mono">001</td><td class="small">— draft blocked by QC; never published, never scored as a hypothesis —</td><td><span class="small">n/a</span></td><td><span class="pill blocked">Mechanical defect ×2</span></td></tr>
+    </table>
+  </div>
+
+  <h3>How scoring works</h3>
+  <div class="card">
+    <p><b>1 · Hypothesis errors</b> — expected, scored, learned from. A
+    disproven call is the job working: the falsification conditions said
+    what would prove it wrong, and reality did. Each gets: what was
+    predicted, what happened, which assumption failed.</p>
+    <p><b>2 · Mechanical errors</b> — target zero. Wrong arithmetic, stale
+    sources, ungrounded claims. Each is recorded as a defect with its fix
+    (run 001's two blockers are already logged this way).</p>
+    <p><b>3 · Calibration.</b> Every confidence level is recorded alongside
+    its outcome. As storms accumulate: when the agent says "medium," how
+    often is it right?</p>
+    <p style="margin-bottom:0"><b>4 · Next version.</b> Every scorecard ends
+    with what the next version of the agent should do differently — the
+    roadmap earns its items here, not in a planning doc.</p>
+  </div>
+
+  <h3>Calibration log</h3>
+  <p class="small">Seeded from Isaias (n=1 storm — thin, but the mechanism
+  exists). Grows with every scored storm.</p>
+  <table class="score-table">
+    <tr><th>Storm</th><th>Runs scored</th><th>Confirmed</th><th>Refuted</th><th>Mechanical defects</th></tr>
+    <tr><td>Isaias (2026)</td><td><span class="small">pending</span></td><td>–</td><td>–</td><td>2 (run 001, pre-publish)</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>Open source · <a href="https://github.com/Una95Singo/FloridaMan/tree/main/agents">agents/</a> · <a href="https://github.com/Una95Singo/FloridaMan">repo</a></span>
+    <span><a href="universe.html">Bond universe</a> · <a href="method.html">Method</a></span>
+    <span>Wrong hypotheses welcome. Wrong arithmetic isn't.</span>
+  </div>
+
+</div>
+</body>
+</html>

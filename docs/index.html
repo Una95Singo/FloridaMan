@@ -8,108 +8,102 @@
 <meta name="description" content="FloridaMan: autonomous agents watch hurricanes, reason about which catastrophe bonds are exposed, and publish traceable, falsifiable hypotheses for a human expert to judge.">
 </head>
 <body>
-<main>
+<div class="wrap">
 
-<header class="site-header">
-  <p class="brand">FloridaMan</p>
-  <p class="tagline">The trace is the product.</p>
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="storms/isaias.html">Isaias watch</a>
-    <a href="universe.html">Bond universe</a>
-    <a href="method.html">Method</a>
-  </nav>
-</header>
+  <header class="masthead">
+    <div class="brand"><a href="index.html">FloridaMan</a></div>
+    <nav class="nav">
+      <a href="storms/isaias.html">Live watch</a>
+      <a href="scorecard.html">Scorecards</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="inbox.html">Expert inbox</a>
+    </nav>
+  </header>
 
-<p class="kicker">A zero-based agentic product for insurance-linked securities</p>
+  <h1>Work can be done differently.</h1>
+  <p class="lede">FloridaMan is a live, public demonstration that agentic
+  workflows can replace — not merely accelerate — how insurance-linked
+  securities professionals deal with hurricanes. Agents watch storms,
+  reason about which catastrophe bonds are exposed, and publish traceable,
+  falsifiable hypotheses. A human expert judges; reality scores the
+  predictions.</p>
 
-<h1>Work can be done differently.</h1>
+  <h3>Latest status</h3>
+  <div class="card live-card">
+    <div class="run-head">
+      <span class="pill quiet">Post-landfall</span>
+      <span class="run-title">Hurricane Isaias</span>
+    </div>
+    <p>Isaias made landfall near <b>Destin, Florida</b> at ~8:30 PM CT on
+    Oct 9 as a <b>Category 2 hurricane (105 mph sustained)</b> — the shear
+    won, and the Cat 3 did not hold to the coast. Post-tropical by the
+    morning of Oct 10; NHC issued its final advisory. <span class="small">As
+    of Oct 10, 2026. Sources: NHC via
+    <a href="https://www.usatoday.com/story/news/weather/2026/10/09/hurricane-isaias-landfall-updates-forecast--live/92157423007/">USA Today</a>,
+    <a href="https://www.pnj.com/story/weather/hurricanes/2026/10/09/updates-hurricane-isaias-florida-pensacola-today--live/92152801007/">Pensacola News Journal</a>.</span></p>
+    <div class="hypothesis">
+      <div class="kicker">Current hypothesis · run 004 · indicative · under expert review</div>
+      Hestia Re B ($405m) and First Coast Re IV B ($390m) read as
+      <b>likely threatened</b> on a direct Panhandle hit; Kilimanjaro II
+      leads the tail. <span class="small">Confidence: medium. Note: run 004's
+      "likely threatened" read assumed a major-hurricane hit — the Cat 2
+      landfall engages its falsification leg and is now under expert
+      review.</span>
+    </div>
+    <a class="btn primary" href="storms/isaias.html">Read the run feed →</a>
+  </div>
 
-<p class="lede">FloridaMan is a live, public demonstration that agentic workflows can
-replace — not merely accelerate — how ILS professionals deal with hurricanes.
-Autonomous agents watch storms, reason about which catastrophe bonds are
-exposed, and publish traceable, falsifiable hypotheses. A human expert judges;
-reality scores the predictions.</p>
+  <h3>The loop</h3>
+  <div class="card">
+    <p><b>1 · Draft.</b> A storm event triggers the watch agent, which drafts
+    an exposure hypothesis.</p>
+    <p><b>2 · QC.</b> A QC agent validates mechanics only — grounding,
+    arithmetic, freshness, completeness. One blocker stops the run.</p>
+    <p><b>3 · Expert.</b> The senior expert is asked one question:
+    <i>"where am I wrong?"</i> Corrections enter the trace.</p>
+    <p><b>4 · Publish.</b> The QC-passed, expert-reviewed hypothesis
+    publishes with its full trace.</p>
+    <p style="margin-bottom:0"><b>5 · Score.</b> Reality is the audit:
+    predictions carry timestamped kill conditions and are scored after
+    the event.</p>
+  </div>
 
-<div class="loop" aria-label="The loop">
-  <div class="step"><span class="n">1</span><span class="t">Draft</span><div class="d">A storm event triggers the watch agent, which drafts an exposure hypothesis.</div></div>
-  <div class="step"><span class="n">2</span><span class="t">QC</span><div class="d">A QC agent validates mechanics only — grounding, arithmetic, freshness, completeness.</div></div>
-  <div class="step"><span class="n">3</span><span class="t">Expert</span><div class="d">The senior expert is asked one question: "where am I wrong?" Corrections enter the trace.</div></div>
-  <div class="step"><span class="n">4</span><span class="t">Publish</span><div class="d">The QC-passed, expert-reviewed hypothesis publishes with its full trace.</div></div>
-  <div class="step"><span class="n">5</span><span class="t">Score</span><div class="d">Reality is the audit: predictions carry timestamped kill conditions and are scored after the event.</div></div>
+  <h3>The stream</h3>
+  <div class="heartbeat">
+    <div><b>Oct 10, 4:00 AM CT</b> — Isaias post-tropical; NHC final advisory issued</div>
+    <div><b>Oct 9, 8:30 PM CT</b> — LANDFALL near Destin, FL — Cat 2, 105 mph (shear won; Cat 3 not sustained)</div>
+    <div><b>Oct 9, 8:05 PM EDT</b> — runs 001–004 + QC records published to main</div>
+    <div><b>Oct 9, 12:35 PM EDT</b> — run 004 QC PASS (8/8) → expert gate opened</div>
+    <div><b>Oct 9, 7:20 AM CT</b> — NHC alert: Cat 3 escalation → run 004 drafted (TRG-001/002)</div>
+    <div><b>Oct 8, 11:35 PM EDT</b> — run 003 QC PASS (Advisory 10, Cat 2)</div>
+    <div><b>Oct 8, 11:25 PM EDT</b> — expert decision recorded: re-run as 003, don't publish 002 as-is</div>
+    <div><b>Oct 8, daytime</b> — no material trigger → no new run</div>
+    <div><b>Oct 7, 11:35 PM EDT</b> — expert correction recorded: aggregate erosion underweighted</div>
+    <div><b>Oct 7, 10:45 PM CDT</b> — run 002 QC PASS (Advisory 6, 70 mph)</div>
+    <div><b>Oct 7, 10:30 PM CDT</b> — run 001 QC <b>BLOCKED</b>: stale advisory vintage + wrong-field figure</div>
+  </div>
+  <p class="small" style="margin-top:8px">Silence is correct: no trigger, no
+  output. Quiet periods before Oct 10 were operator-evaluated; the automated
+  6h heartbeat was committed Oct 10.</p>
+
+  <h3>Get the hypothesis when it matters</h3>
+  <div class="card">
+    <p>No account. No app. No dashboard. One email per trigger — the
+    hypothesis inline, the trace one tap away. Nothing when nothing
+    happens.</p>
+    <a class="btn primary" href="subscribe.html">Subscribe →</a>
+  </div>
+
+  <h3>Past storms</h3>
+  <p class="small">Isaias (Oct 2026) is the first live watch. Its scorecard
+  publishes within 72h of dissipation. Closed storms appear here with their
+  scorecards.</p>
+
+  <div class="footer">
+    <span>Open source · <a href="https://github.com/Una95Singo/FloridaMan/tree/main/agents">agents/</a> · <a href="https://github.com/Una95Singo/FloridaMan">repo</a></span>
+    <span><a href="universe.html">Bond universe</a> · <a href="method.html">Method</a> · A <a href="https://singolab.com">singolab.com</a> production gateway link — FloridaMan runs independently.</span>
+  </div>
+
 </div>
-
-<p>There is no dashboard. Nothing here starts with a human opening an app —
-agents trigger on events, the trace arrives for judgment, and silence is
-correct: no trigger, no output. Hypotheses are <em>indicative</em> ranges,
-never point estimates, and never secondary-market pricing.</p>
-
-<p>Read <a href="method.html">the method</a> for the full loop, the two kinds of
-wrong, and why there is no cockpit.</p>
-
-<h2>Live watch status — Hurricane Isaias</h2>
-
-<div class="status-banner">
-  <p class="status-line">Isaias is now a 120 mph Category 3 major hurricane — landfall expected tonight near the Alabama–Florida border.</p>
-
-  <!--
-    GENERATED CONTENT — watch status, copied verbatim from
-    ~/workspace/github-finish/floridaman/watch/isaias/latest.md
-    To refresh: re-copy the body of latest.md into this block, preserving
-    the markup mapping (bold/italics/lists). Do not edit figures by hand.
-  -->
-  <p><em>Draft. Not published. Awaiting expert review (QC: PASS, qc-20261009-004).</em><br>
-  <em>Computed from the NHC 7:20 AM CT alert, Fri Oct 9, 2026. Supersedes the
-  run 003 draft, whose inputs (Advisory 10, 105 mph Cat 2) went stale.</em></p>
-
-  <p>Isaias is now a 120 mph Category 3 major hurricane (up from 105 mph ~9h
-  earlier), 959 mb, ~170–245 miles south of the northern Gulf Coast, moving
-  north-northeast at 15 mph. Forecast: brief further strengthening possible,
-  then increasing shear weakens it — expected at landfall late tonight / early
-  Saturday near the Alabama–Florida border as a strong Cat 2, though NHC allows
-  it maintaining major intensity to landfall. Hurricane warning: Ocean Springs,
-  MS → Bay/Gulf County line, FL. Storm surge warning: mouth of the Mississippi
-  → Suwannee River, up to 7 ft. Wind field growing via trough interaction —
-  impacts well away from the center. Rainfall 4–8 inches (up to 15 locally);
-  tornado risk east of center.</p>
-
-  <p><strong>Indicative read:</strong> the Cat 3 escalation fired run 003's
-  trigger, and the hypothesis escalates with it. The two sub-$500m Florida
-  attachments — Hestia Re B ($405m) and First Coast Re IV B ($390m) — are now
-  <strong>likely threatened</strong> if the landfall point falls on populated
-  Panhandle coastline near the cedents' concentrations. Kilimanjaro II
-  (Everest Re, industry-loss) is the <strong>lead tail position</strong>: if
-  the storm holds intensity against the shear forecast, industry-loss estimates
-  move up. Artemis's single-digit-billion insured-loss framing (written
-  pre-Cat-3) is now likely stale-low. Everything above $1bn attachment (Bayou
-  Re A, Everglades, Sanders) still requires a severe-to-catastrophic
-  realization; aggregates face full retentions (2026 season record-quiet).</p>
-
-  <p>Sensitivity order: Kilimanjaro II (tail) / Hestia Re B / First Coast Re B
-  — then Bayou Re A — then a large gap to everything else.</p>
-
-  <p><strong>Confidence: medium.</strong> Track confidence high; landfall
-  intensity is the entire game and rests on shear timing the models still split
-  on.</p>
-
-  <p><strong>Aggregate erosion check (expert-raised):</strong> 2026's eight
-  prior named storms were all tropical storms — zero hurricanes before Isaias
-  — so aggregate retentions are most likely largely intact; Isaias faces
-  essentially full attachments. Residual uncertainty where event deductibles
-  are low (e.g., Alamo Re's $50m); cedent-level losses aren't publicly
-  verifiable.</p>
-  <!-- END GENERATED CONTENT -->
-</div>
-
-<p class="meta">Four watch runs so far (001 → 004), each with full trace, QC
-record, and expert corrections. <a href="storms/isaias.html">Read the run
-feed →</a></p>
-
-<footer class="site-footer">
-  FloridaMan — a zero-based agentic ILS product. Hypotheses are indicative,
-  never pricing. Full traces and QC records are the audit trail.
-</footer>
-
-</main>
 </body>
 </html>

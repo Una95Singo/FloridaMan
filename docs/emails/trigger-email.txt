@@ -1,0 +1,27 @@
+Subject: [FloridaMan] Isaias run 004 — Cat 3 escalation
+From: FloridaMan Watch <watch@floridaman.example>
+To: {{subscriber_email}}
+List-Unsubscribe: <{{unsubscribe_url}}>
+
+Isaias reached Category 3 (120 mph, 959 mb, NHC 7:20 AM CT alert Oct 9) —
+up a full category since run 003. This fired run 003's own escalation
+trigger.
+
+Indicative read: Hestia Re B ($405m) and First Coast Re IV B ($390m) now
+read as likely threatened on a direct Panhandle hit; Kilimanjaro II
+(Everest Re, industry-loss) leads the tail. Everything above $1bn
+attachment still needs a severe-to-catastrophic realization. Confidence:
+medium — landfall intensity rests on shear timing, which the models split
+on.
+
+Falsification — what proves this wrong:
+- Landfall at Cat 3+ sustained → Hestia B / First Coast B "attachment probable"
+- Shear wins, landfall at Cat 1 → de-escalate to run 003's "plausible" framing
+- Track shifts >100 km west/east → re-rank Bayou Re vs FL positions
+- First PCS industry-loss estimate → ground truth for Kilimanjaro II
+
+Full trace: {{trace_url}} (run 004, QC PASS 8/8)
+
+Indicative ranges only — never pricing, never marks.
+Silence is correct: you only hear from us when a trigger fires.
+Unsubscribe: {{unsubscribe_url}}
