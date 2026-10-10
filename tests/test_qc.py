@@ -20,8 +20,8 @@ from pathlib import Path
 
 from floridaman.qc import QcContext, review, write_qc_record
 
-SOURCE_REPO = Path.home() / "workspace/github-finish/floridaman"
-UNIVERSE = str(SOURCE_REPO / "bond-universe.csv")
+SOURCE_REPO = Path(__file__).resolve().parents[1]
+UNIVERSE = str(SOURCE_REPO / "data/bond-universe.csv")
 FIXTURE_001 = SOURCE_REPO / "watch/isaias/trace-20261008-001.md"
 FIXTURE_004 = SOURCE_REPO / "watch/isaias/trace-20261009-004.md"
 
