@@ -1,0 +1,102 @@
+# FloridaMan watch heartbeat — every 6 hours.
+#
+# Pipeline order per the agentic SDLC spec and DESIGN_THESIS.md:
+#   run (draft trace) -> qc (mechanical gate) -> gate (expert gate) -> [human] publish
+#
+# Doctrine: a watch run is NEVER published without the human expert's
+# sign-off. This workflow therefore STOPS after the expert gate opens
+# the review issue. There is intentionally no auto-publish step: the
+# expert approves via issue comment, and a human operator then runs
+# gate status + publish + git push.
+#
+# Secrets: only ${{ secrets.GITHUB_TOKEN }} is referenced (for the gate
+# step). It is provided by GitHub Actions automatically; no other
+# secrets are needed. Extra configuration a deployer may want:
+#   - vars.NHC_ADVISORY_JSON  (optional): pinned advisory-vintage JSON
+#     passed to qc as --advisory-vintage-json, so check 4 can detect
+#     internal vintage mismatches without live NHC parsing.
+
+name: FloridaMan watch heartbeat
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:          # manual trigger for testing
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read        # checkout; publishing is a human's git push
+      issues: write         # the expert gate opens/reads the review issue
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run storm watch (one pass)
+        # floridaman.run drafts watch/isaias/trace-<ts>-<nnn>.md and prints
+        # the advisory identity it drafted from to $GITHUB_OUTPUT as
+        # `advisory` (number, e.g. "6") or `advisory_descriptor`
+        # (e.g. "7:20 AM CT alert") when the trigger cites no number.
+        id: run
+        working-directory: pipeline
+        run: python -m floridaman.run --storm isaias --once
+
+      - name: QC the new trace (mechanical gate)
+        # Exit 0 = PASS, 2 = BLOCKED. A BLOCKED trace stops the job here;
+        # the QC record is still written next to the trace for the audit trail.
+        id: qc
+        working-directory: pipeline
+        run: |
+          TRACE="../$(ls -t ../watch/isaias/trace-*.md | head -n 1)"
+          STEM="$(basename "$TRACE" .md)"
+          OUT="../watch/isaias/qc-${STEM#trace-}.md"
+          ARGS=(--trace "$TRACE" --universe ../bond-universe.csv --storm isaias --out "$OUT")
+          if [ -n "${{ steps.run.outputs.advisory }}" ]; then
+            ARGS+=(--latest-advisory "${{ steps.run.outputs.advisory }}")
+          fi
+          if [ -n "${{ steps.run.outputs.advisory_descriptor }}" ]; then
+            ARGS+=(--latest-descriptor "${{ steps.run.outputs.advisory_descriptor }}")
+          fi
+          if [ -n "${{ vars.NHC_ADVISORY_JSON }}" ]; then
+            ARGS+=(--advisory-vintage-json '${{ vars.NHC_ADVISORY_JSON }}')
+          fi
+          python -m floridaman.qc "${ARGS[@]}"
+          echo "qc_record=$OUT" >> "$GITHUB_OUTPUT"
+
+      - name: Open expert review (gate pauses here)
+        # Runs ONLY on QC PASS (previous step exits non-zero on BLOCKED).
+        # Opens a GitHub issue with the hypothesis + "where am I wrong?"
+        # questions and records pending gate state. The workflow ends here
+        # by design: publishing waits for the expert's APPROVE comment.
+        if: steps.qc.outcome == 'success'
+        working-directory: pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TRACE="../$(ls -t ../watch/isaias/trace-*.md | head -n 1)"
+          python -m floridaman.gate open \
+            --trace "$TRACE" \
+            --qc-record "${{ steps.qc.outputs.qc_record }}" \
+            --storm isaias \
+            --repo "$GITHUB_REPOSITORY" \
+            --state-dir ../watch/isaias \
+            --via urllib
+
+      - name: No auto-publish (by design)
+        # FloridaMan doctrine: no watch run is published without the
+        # expert's sign-off. After the expert comments APPROVE on the
+        # review issue, a human operator runs:
+        #   python -m floridaman.gate status --state watch/isaias/gate-<nnn>.json
+        #   python - <<'EOF'  (or equivalent operator script)
+        #   from floridaman.publish import publish
+        #   publish(trace, qc_record, "isaias", repo_dir)  # commits; then git push
+        #   EOF
+        # and pushes. The gate state file and QC record stay in the repo
+        # as the audit trail.
+        run: echo "Gate is open; awaiting expert review. Nothing published automatically."
