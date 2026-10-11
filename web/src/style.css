@@ -1086,7 +1086,8 @@ select {
     font-size: 8px;
   }
   .map-legend {
-    bottom: 265px;
+    /* Clear the compact attribution control, which sits at bottom: 250px. */
+    bottom: 292px;
     left: 20px;
     padding: 8px 10px;
     font-size: 9px;

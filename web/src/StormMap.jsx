@@ -266,7 +266,10 @@ export default function StormMap({ packet, compact = false }) {
   }, [packet.id, packet.version]);
   useEffect(() => {
     const m = map.current;
-    if (!loaded || !m) return;
+    // After a packet version change the map is recreated. React runs this
+    // effect before the stale `loaded` state resets, so confirm the layers
+    // exist on this instance instead of trusting `loaded` alone.
+    if (!loaded || !m || !m.getLayer("previous-line")) return;
     ["cone-fill", "cone-edge", "forecast-line"].forEach((id) =>
       m.setLayoutProperty(
         id,
