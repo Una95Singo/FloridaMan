@@ -19,10 +19,37 @@ const fs = require("fs");
   const b = await chromium.launch(opts),
     p = await b.newPage({ viewport: { width: 1440, height: 1000 } });
   const errors = [];
+  const consoleErrors = [];
   p.on("pageerror", (e) => errors.push(e.message));
+  p.on("console", (m) => {
+    if (m.type() === "error") consoleErrors.push(m.text());
+  });
   const base = process.env.BASE_URL || "http://127.0.0.1:8000";
   const out = process.env.EVIDENCE_DIR || "test-evidence";
   fs.mkdirSync(out, { recursive: true });
+  // On failure, record what the page showed so a CI log explains itself.
+  process.on("unhandledRejection", async (e) => {
+    try {
+      const state = {
+        failure: String(e && e.message ? e.message : e),
+        url: p.url(),
+        buttons: await p.getByRole("button").allInnerTexts(),
+        page_errors: errors,
+        console_errors: consoleErrors,
+        panel_text: await p
+          .locator(".reading-panel")
+          .innerText()
+          .catch(() => ""),
+      };
+      fs.writeFileSync(out + "/failure.json", JSON.stringify(state, null, 2));
+      await p.screenshot({ path: out + "/failure.png", fullPage: true });
+      console.error(JSON.stringify(state, null, 2));
+    } catch (inner) {
+      console.error("Could not capture failure state:", inner);
+    }
+    console.error(e);
+    process.exit(1);
+  });
   await p.goto(base);
   await p
     .getByRole("button", { name: "Review analysis", exact: true })
@@ -202,7 +229,4 @@ const fs = require("fs");
   );
   await b.close();
   console.log("Browser workflow passed.");
-})().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+})();
