@@ -1,0 +1,9 @@
+.git
+.env
+.env.*
+*.db
+.venv
+web/node_modules
+web/dist
+__pycache__
+test-evidence

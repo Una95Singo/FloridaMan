@@ -1,3 +1,5 @@
+> **Legacy v1 instructions.** For the current self-hosted V2 workflow, use [deploy/OPERATIONS.md](deploy/OPERATIONS.md). The public-issue approval mechanism below is superseded and must not be used for V2 drafts.
+
 # FloridaMan v1 — deploy guide
 
 ## 1. The site → GitHub Pages
