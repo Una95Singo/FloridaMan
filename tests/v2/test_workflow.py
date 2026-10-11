@@ -244,3 +244,55 @@ def test_recent_authentication_required(client):
         row.data = data
         db.commit()
     assert act(client, token, "approve", acknowledged=True).status_code == 401
+
+
+def test_operation_lookup_recovers_a_completed_mutation(client):
+    t = login(client)
+    p = case(client)
+    key = str(uuid.uuid4())
+    # Unknown before the mutation completes; the client must not assume failure
+    # or success from a timeout alone.
+    assert client.get("/api/cases/demo-gulf/operations/" + key).status_code == 404
+    first = act(client, t, "approve", packet=p, key=key, acknowledged=True)
+    assert first.status_code == 200
+    found = client.get("/api/cases/demo-gulf/operations/" + key)
+    assert found.status_code == 200
+    assert found.json()["status"] == "succeeded"
+    assert found.json()["result"] == first.json()
+    assert client.get("/api/cases/demo-gulf/operations/short").status_code == 422
+
+
+def test_operation_lookup_is_private_and_scoped_to_the_actor(client):
+    t = login(client)
+    p = case(client)
+    key = str(uuid.uuid4())
+    assert act(client, t, "approve", packet=p, key=key, acknowledged=True).status_code == 200
+    client.post("/auth/logout", headers={"X-CSRF-Token": t})
+    assert client.get("/api/cases/demo-gulf/operations/" + key).status_code == 401
+    # A different subject with the same key sees nothing.
+    login(client)
+    with service.Factory() as db:
+        user = db.scalars(select(service.Login)).first()
+        u = dict(user.data)
+        u["sub"] = "someone-else"
+        user.data = u
+        db.commit()
+    assert client.get("/api/cases/demo-gulf/operations/" + key).status_code == 404
+
+
+def test_reopen_outside_demo_uses_the_review_window_rule(client, monkeypatch):
+    from server.domain import review_deadline
+
+    t = login(client)
+    act(client, t, "simulate_source_change")
+    act(client, t, "approve", acknowledged=True)
+    assert act(client, t, "release").status_code == 409  # held: source changed
+    monkeypatch.setattr(service, "DEMO", False)
+    r = act(client, t, "reopen", reason="Fresh evidence requires another review.")
+    assert r.status_code == 200
+    data = r.json()
+    expected = review_deadline(data["first_requested"])
+    from datetime import datetime
+
+    assert datetime.fromisoformat(data["deadline"]) == expected
+    assert data["previous_deadline"] != data["deadline"]

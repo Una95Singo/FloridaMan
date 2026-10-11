@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowLeft,
@@ -30,7 +30,16 @@ import "@fontsource/source-sans-3/600.css";
 import StormMap from "./StormMap";
 import "./style.css";
 async function api(path, options = {}) {
-  const r = await fetch("/api" + path, options);
+  let r;
+  try {
+    r = await fetch("/api" + path, options);
+  } catch {
+    // A failed connection is not a failed request. The caller decides
+    // whether to look the operation up before retrying.
+    const e = Error("The connection was interrupted.");
+    e.network = true;
+    throw e;
+  }
   if (!r.ok) {
     let b;
     try {
@@ -81,7 +90,11 @@ function App() {
     [notice, setNotice] = useState(""),
     [audit, setAudit] = useState([]),
     [memo, setMemo] = useState("");
+  // Idempotency keys of requests whose outcome is unknown, by payload. A
+  // retry of the same payload reuses the key, so one decision is recorded.
+  const pendingKeys = useRef({});
   const current = cases[0];
+  const isOperator = Boolean(session?.roles?.includes("operator"));
   const publicRelease =
     releases.find((r) => r.id === selected) || releases.at(-1);
   const p =
@@ -136,26 +149,51 @@ function App() {
       setBusy(false);
     }
   }
+  async function recoverOperation(key) {
+    try {
+      const op = await api("/cases/" + current.id + "/operations/" + key);
+      return op.result;
+    } catch (e) {
+      if (e.network) throw e;
+      return null;
+    }
+  }
   async function action(type, extra = {}) {
     setBusy(true);
     setError("");
+    const body = JSON.stringify({
+      action: type,
+      expected_digest: current.digest,
+      ...extra,
+    });
+    const key = pendingKeys.current[body] || crypto.randomUUID();
+    pendingKeys.current[body] = key;
     try {
-      const result = await api("/cases/" + current.id + "/actions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": session.csrf,
-          "Idempotency-Key": crypto.randomUUID(),
-        },
-        body: JSON.stringify({
-          action: type,
-          expected_digest: current.digest,
-          ...extra,
-        }),
-      });
+      let result;
+      try {
+        result = await api("/cases/" + current.id + "/actions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": session.csrf,
+            "Idempotency-Key": key,
+          },
+          body,
+        });
+      } catch (e) {
+        if (!e.network) throw e;
+        // The server may have completed the request. Ask before retrying.
+        result = await recoverOperation(key);
+        if (!result)
+          throw Error(
+            "The connection was interrupted and the server has no record of this request. Retry to send it again.",
+          );
+      }
+      delete pendingKeys.current[body];
       setCases([result]);
       setSelected(null);
-      await refresh();
+      // Navigate before the background refresh. A later refresh must not
+      // undo a navigation the reviewer made while the request was pending.
       go(type === "release" ? "archive" : "reviews");
       setNotice(
         type === "approve"
@@ -168,6 +206,7 @@ function App() {
       );
       setText("");
       setReason("");
+      await refresh();
     } catch (e) {
       setError(e.message);
       await refresh();
@@ -685,14 +724,21 @@ function App() {
                         An operator must authorize the replacement. The original
                         deadline is retained.
                       </p>
-                      <button
-                        className="primary"
-                        disabled={busy}
-                        onClick={() => action("run")}
-                      >
-                        {busy ? "Running…" : "Authorize replay & recheck"}
-                        <RefreshCw size={17} />
-                      </button>
+                      {isOperator ? (
+                        <button
+                          className="primary"
+                          disabled={busy}
+                          onClick={() => action("run")}
+                        >
+                          {busy ? "Running…" : "Authorize replay & recheck"}
+                          <RefreshCw size={17} />
+                        </button>
+                      ) : (
+                        <p className="muted">
+                          Your account has the expert role only. The operator
+                          will be notified.
+                        </p>
+                      )}
                     </>
                   )}
                   {current?.state === "approved" && (
@@ -701,13 +747,17 @@ function App() {
                         Nothing has been published. The operator releases this
                         exact version after final checks.
                       </p>
-                      <button
-                        className="primary"
-                        onClick={() => go("release-confirm")}
-                      >
-                        Review operator release
-                        <ArrowRight size={17} />
-                      </button>
+                      {isOperator ? (
+                        <button
+                          className="primary"
+                          onClick={() => go("release-confirm")}
+                        >
+                          Review operator release
+                          <ArrowRight size={17} />
+                        </button>
+                      ) : (
+                        <p className="muted">Waiting for operator release.</p>
+                      )}
                     </>
                   )}
                   {current?.state === "held" && (
@@ -719,20 +769,30 @@ function App() {
                           and release are disabled.
                         </p>
                       </div>
-                      <label htmlFor="reopen">Reason for a fresh cycle</label>
-                      <textarea
-                        id="reopen"
-                        value={reason}
-                        onChange={(e) => setReason(e.target.value)}
-                        placeholder="Explain why this case needs a fresh review."
-                      />
-                      <button
-                        className="primary"
-                        disabled={busy || reason.trim().length < 10}
-                        onClick={() => action("reopen", { reason })}
-                      >
-                        Open fresh review cycle
-                      </button>
+                      {isOperator ? (
+                        <>
+                          <label htmlFor="reopen">
+                            Reason for a fresh cycle
+                          </label>
+                          <textarea
+                            id="reopen"
+                            value={reason}
+                            onChange={(e) => setReason(e.target.value)}
+                            placeholder="Explain why this case needs a fresh review."
+                          />
+                          <button
+                            className="primary"
+                            disabled={busy || reason.trim().length < 10}
+                            onClick={() => action("reopen", { reason })}
+                          >
+                            Open fresh review cycle
+                          </button>
+                        </>
+                      ) : (
+                        <p className="muted">
+                          Only an operator can open a fresh review cycle.
+                        </p>
+                      )}
                     </>
                   )}
                   {current?.state === "published" && (
@@ -893,7 +953,7 @@ function App() {
                 </form>
               </>
             )}
-            {view === "release-confirm" && current && (
+            {view === "release-confirm" && current && isOperator && (
               <>
                 <button className="back" onClick={() => go("reviews")}>
                   <ArrowLeft size={17} />

@@ -29,6 +29,15 @@ const fs = require("fs");
     .waitFor();
   await p.waitForTimeout(1200);
   await p.screenshot({ path: out + "/desktop-watch.png" });
+  // Record which geography path actually rendered. The evidence must not
+  // claim a GPU map when the SVG fallback drew the page, or the reverse.
+  const mapPath = await p.evaluate(() =>
+    document.querySelector(".geographic-fallback svg")
+      ? "svg-fallback"
+      : document.querySelector(".maplibregl-canvas")
+        ? "maplibre-webgl"
+        : "none",
+  );
   await p.getByRole("button", { name: "Map layers", exact: true }).click();
   await p
     .getByRole("checkbox", { name: "Previous advisory", exact: true })
@@ -64,9 +73,29 @@ const fs = require("fs");
   )
     throw Error("acknowledgement guard failed");
   await p.getByLabel("I reviewed this version and its uncertainty.").check();
+  // Interrupt the approval response once, after the server has processed the
+  // request. The client must recover the saved operation by its idempotency
+  // key instead of assuming failure or sending a second decision.
+  let interrupted = false;
+  await p.route("**/api/cases/*/actions", async (route) => {
+    if (interrupted) return route.continue();
+    interrupted = true;
+    await route.fetch();
+    await route.abort("failed");
+  });
   await p
     .getByRole("button", { name: "Approve this version", exact: true })
     .click();
+  await p.getByText("Approved. Waiting for operator release.").waitFor();
+  await p.unroute("**/api/cases/*/actions");
+  if (!interrupted) throw Error("approval response was not interrupted");
+  const approvals = (
+    await p.request.get(base + "/api/cases/demo-gulf/audit")
+  )
+    .json()
+    .then((rows) => rows.filter((r) => r.action === "approve").length);
+  if ((await approvals) !== 1)
+    throw Error("expected exactly one recorded approval, got " + (await approvals));
   await p
     .getByRole("button", { name: "Review operator release", exact: true })
     .click();
@@ -92,6 +121,25 @@ const fs = require("fs");
     throw Error("PDF download failed");
   fs.writeFileSync(out + "/released-memo.pdf", await pdf.body());
   await p.screenshot({ path: out + "/desktop-memo.png" });
+  const viewports = [];
+  for (const [width, height] of [
+    [360, 740],
+    [768, 1024],
+    [1440, 900],
+  ]) {
+    await p.setViewportSize({ width, height });
+    await p.goto(base);
+    await p
+      .getByRole("button", { name: "Review analysis", exact: true })
+      .waitFor();
+    await p.waitForTimeout(400);
+    await p.screenshot({ path: out + `/watch-${width}x${height}.png` });
+    const overflow = await p.evaluate(
+      () => document.documentElement.scrollWidth > innerWidth,
+    );
+    if (overflow) throw Error(`horizontal overflow at ${width}px`);
+    viewports.push(`${width}x${height}`);
+  }
   await p.setViewportSize({ width: 390, height: 844 });
   await p.goto(base);
   await p
@@ -126,14 +174,20 @@ const fs = require("fs");
       {
         status: "passed",
         scope: "Real FastAPI/SQLAlchemy isolated demo workflow",
+        browser: b.version(),
+        map_path: mapPath,
+        viewports_without_horizontal_overflow: [...viewports, "390x844"],
         checks: [
           "responsive desktop and phone",
-          "geographic fallback renders real land data",
+          mapPath === "svg-fallback"
+            ? "geographic fallback renders real land data"
+            : "MapLibre WebGL map renders real land data",
           "advisory layer control",
           "versioned source inspection",
           "persistent correction",
           "operator-authorized replay and QC",
           "acknowledged expert approval",
+          "operation recovery after an interrupted response",
           "separate operator release",
           "digest-bound PDF download",
           "audit record",

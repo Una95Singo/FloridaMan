@@ -12,7 +12,7 @@ from sqlalchemy import create_engine, String, Text, JSON, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker, Session
 from pydantic import BaseModel, Field, ConfigDict
 from authlib.integrations.starlette_client import OAuth
-from .domain import now, stamp, digest, fixture, qc
+from .domain import now, stamp, digest, fixture, qc, review_deadline
 
 DEMO = os.getenv("FM_DEMO", "false").lower() == "true"
 DB = os.getenv("DATABASE_URL", "sqlite:///./floridaman-v2.db")
@@ -375,6 +375,24 @@ def history(id: str, request: Request, db=Depends(getdb)):
     )
 
 
+@app.get("/api/cases/{id}/operations/{key}")
+def operation(id: str, key: str, request: Request, db=Depends(getdb)):
+    """Recover the outcome of a mutation after a network timeout.
+
+    A timeout does not imply failure. The client asks for its own
+    idempotency key before retrying; a saved result is returned unchanged.
+    The lookup is scoped to the signed-in subject, so one reviewer cannot read
+    another reviewer's operations by guessing a key.
+    """
+    u = require(request, db)
+    if not 8 <= len(key) <= 128:
+        raise HTTPException(422, "An idempotency key is required.")
+    op = db.get(Record, "op:" + digest([u["sub"], id, key]))
+    if not op:
+        raise HTTPException(404, "No completed operation has this key.")
+    return {"status": "succeeded", "result": op.data["result"]}
+
+
 class Action(BaseModel):
     model_config = ConfigDict(extra="forbid")
     action: str
@@ -532,7 +550,13 @@ def act(id: str, body: Action, request: Request, db=Depends(getdb)):
         if c["state"] != "held" or len(body.reason.strip()) < 10:
             raise HTTPException(409, "A held case and an explicit reason are required.")
         c["previous_deadline"] = c["deadline"]
-        c["deadline"] = (now() + timedelta(hours=2 if DEMO else 12)).isoformat()
+        requested = now()
+        c["first_requested"] = requested.isoformat()
+        c["deadline"] = (
+            (requested + timedelta(hours=2)).isoformat()
+            if DEMO
+            else review_deadline(requested, p.get("decision_horizon")).isoformat()
+        )
         c["cycle"] += 1
         c["state"] = "queued"
         c["approval"] = None

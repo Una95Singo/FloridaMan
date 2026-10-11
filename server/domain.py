@@ -12,6 +12,40 @@ def stamp():
     return now().isoformat()
 
 
+REVIEW_WINDOWS_UTC = (9, 21)
+
+
+def review_deadline(first_requested, decision_horizon=None):
+    """Expert review deadline per WORKFLOW_CONTRACT section 4 and FR-013.
+
+    The deadline is the earliest of: the next 09:00 or 21:00 UTC review window
+    after the first request, the first request plus twelve hours, and the
+    decision horizon when one is supplied. A window that coincides exactly with
+    the request time does not count; the next one does. Corrections and
+    replacement versions keep the deadline; only an explicit reopen computes a
+    new one.
+    """
+    if isinstance(first_requested, str):
+        first_requested = datetime.fromisoformat(first_requested)
+    if first_requested.tzinfo is None:
+        raise ValueError("first_requested must carry a timezone")
+    start = first_requested.astimezone(timezone.utc)
+    candidates = [start + timedelta(hours=12)]
+    day = start.replace(hour=0, minute=0, second=0, microsecond=0)
+    for offset in (0, 1):
+        for hour in REVIEW_WINDOWS_UTC:
+            window = day + timedelta(days=offset, hours=hour)
+            if window > start:
+                candidates.append(window)
+    if decision_horizon:
+        if isinstance(decision_horizon, str):
+            decision_horizon = datetime.fromisoformat(decision_horizon)
+        if decision_horizon.tzinfo is None:
+            raise ValueError("decision_horizon must carry a timezone")
+        candidates.append(decision_horizon.astimezone(timezone.utc))
+    return min(candidates)
+
+
 def digest(value):
     return hashlib.sha256(
         json.dumps(

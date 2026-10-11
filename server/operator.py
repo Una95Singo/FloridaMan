@@ -5,10 +5,9 @@ and are blocked until the importer records independent review evidence.
 """
 
 import argparse, json
-from datetime import timedelta
 from pathlib import Path
 from .app import Factory, Record, put, save_packet, audit
-from .domain import now, stamp, qc, digest
+from .domain import now, stamp, qc, digest, review_deadline
 
 
 def main():
@@ -56,11 +55,14 @@ def main():
                 "The existing case is not open for a replacement. Finish or explicitly reopen it first."
             )
         dg = save_packet(db, packet)
+        # A replacement keeps the open cycle's deadline. A new case gets the
+        # contract rule: earliest of the next 09:00/21:00 UTC window, first
+        # request plus twelve hours, or the packet's decision horizon.
         first = existing.data["first_requested"] if existing else stamp()
         deadline = (
             existing.data["deadline"]
             if existing
-            else (now() + timedelta(hours=12)).isoformat()
+            else review_deadline(first, packet.get("decision_horizon")).isoformat()
         )
         put(
             db,
