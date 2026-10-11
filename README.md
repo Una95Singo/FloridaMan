@@ -26,6 +26,7 @@ This is an isolated synthetic replay. It uses a real API and persistent database
 - Mobile disclosure, evidence comparison, correction forms and decision history.
 - FastAPI with SQLAlchemy persistence; SQLite for the local replay, PostgreSQL for the deployment configuration.
 - Server-side roles, sessions, CSRF checks, stale-version rejection, deadline holds and digest-bound approval.
+- The contract review deadline (next 09:00/21:00 UTC window, first request plus twelve hours, or decision horizon) and an operation lookup so a reviewer can recover a decision after a network timeout without recording it twice.
 - A separate release action and memo exports generated from the released packet.
 - An OIDC integration and an operated private-packet importer. These require deployment validation.
 

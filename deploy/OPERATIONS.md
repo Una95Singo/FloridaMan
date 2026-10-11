@@ -46,6 +46,8 @@ The digest is SHA-256 over the canonical JSON serialization implemented by serve
     python -m server.operator --packet /private/packet.json --qc-record /private/qc.json --expert-subject EXPERT_OIDC_SUB --operator OPERATOR_ID
 
 The command creates a private review record only. Publication remains blocked until a live source-verification and mirror adapter is implemented and tested.
+A new case receives the contract review deadline: the earliest of the next 09:00 or 21:00 UTC window, the first request plus twelve hours, or the packet's optional `decision_horizon`.
+A replacement for an open case keeps that case's deadline. Only an explicit operator reopen computes a new one.
 This fail-closed boundary is intentional. A configured identity provider does not make live analytical outputs valid.
 
 ## Verification
@@ -61,9 +63,12 @@ For real-browser integration checks, install Playwright outside the source tree 
     /tmp/fm-browser/node_modules/.bin/playwright install chromium
     PLAYWRIGHT_MODULE=/tmp/fm-browser/node_modules/playwright ./scripts/check-browser.sh
 
-The browser script starts a disposable loopback server and exercises the actual API and database.
+The browser script starts a disposable loopback server on port 8011 (override with BROWSER_CHECK_PORT) and exercises the actual API and database.
+It waits for the port to be free, so repeated runs do not probe a server that is still shutting down.
 Set PLAYWRIGHT_MODULE or CHROMIUM_PATH only when using a separately installed browser runtime.
 The resulting screenshots, memo and browser-results.json are written to test-evidence/.
+browser-results.json records the browser version, the geography path that rendered (`maplibre-webgl` or `svg-fallback`) and the viewports that passed the overflow check.
+The script also interrupts one approval response after the server has processed it and verifies that the client recovers the saved operation instead of recording a second decision.
 
 ## Backup and restore gate
 Back up PostgreSQL with encrypted off-host storage. Retain both records and sessions under a documented retention policy.
